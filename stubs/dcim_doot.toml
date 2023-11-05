@@ -1,0 +1,95 @@
+[plugins]
+command        = {}
+reporter       = {}
+
+action         = {}
+tasker         = {}
+
+[globbing]
+ignores  = ['.git', '.DS_Store', "__pycache__"]
+
+[[locations]]
+data    = "."
+build   = ".processes"
+temp    = ".processes"
+backup  = "/Volumes/BackupSD/Pictures"
+
+[[tasks]]
+
+[[tasks.images]]
+name                 = "ocr"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASKER" ]         # <TaskFlags>
+
+[[tasks.images]]
+name                 = "hashing"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASKER" ]           # <TaskFlags>
+
+[[tasks.images]]
+name                 = "group-hashes"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASKER" ]           # <TaskFlags>
+
+[[tasks.images]]
+name                 = "duplication-check"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASKER" ]           # <TaskFlags>
+
+[[tasks.images]]
+name                 = "duplicate-clean"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASKER" ]           # <TaskFlags>
+
+[[tasks.images]]
+name                 = "backup"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASKER" ]           # <TaskFlags>

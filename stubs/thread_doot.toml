@@ -1,0 +1,99 @@
+
+[[locations]]
+temp         = ".temp"
+build        = ".build"
+data         = "."
+backup       = "/Volumes/BackupSD/Library/twitter_threads"
+
+[tasks]
+
+[[tasks.threads]]
+name                 = "hash"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.threads]]
+name                 = "compress"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.threads]]
+name                 = "ocr"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.threads]]
+name                 = "extractor"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.threads]]
+name                 = "count"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.threads]]
+name                 = "org"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.threads]]
+name                 = "backup"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>

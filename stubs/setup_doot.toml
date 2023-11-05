@@ -1,0 +1,73 @@
+
+[[locations]]
+home         = "/Users/johngrey"
+temp         = ".temp"
+github       = ""
+emacs_d      = ""
+doom_d       = ""
+mega         = ""
+pdfs         = ""
+# terminal   = ""
+binaries     = "/usr/local/bin"
+
+[extra.binaries]
+soar   = ""
+clips  = ""
+ceptre = ""
+jacamo = ""
+
+
+[tasks]
+
+[[tasks.setup]]
+name                 = "main"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.setup]]
+name                 = "symlinks"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.setup]]
+name                 = "directories"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+
+[[tasks.setup]]
+name                 = "bashrc"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>

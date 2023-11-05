@@ -1,0 +1,132 @@
+[[tasks.maintain]]
+name                 = "head"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+
+[[tasks.maintain]]
+name                 = "git"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.maintain]]
+name                 = "rust"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.maintain]]
+name                 = "brew"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+
+[[tasks.maintain]]
+name                 = "latex"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.maintain]]
+name                 = "haskell"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.maintain]]
+name                 = "doom"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.maintain]]
+name                 = "conda"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+[[tasks.maintain]]
+name                 = "cron"
+version              = "0.1"                # <str>                
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+
+[[tasks.maintain]]
+name                 = "man"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>

@@ -1,0 +1,38 @@
+[[locations]]
+temp         = ".temp"
+src          = "doot"
+build        = "build"
+docs         = "docs"
+data         = "data"
+codegen      = "{src}/_codegen"
+listings_out = "{build}/listing"
+lint_out     = "{build}/lint"
+
+[tasks]
+
+[[tasks.pdfs]]
+name                 = "list"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASKER" ]           # <TaskFlags>
+
+
+[[tasks.epubs]]
+name                 = "list"
+version              = "0.1"                # <str>
+ctor                 = "basic"              # <str>
+doc                  = []                   # <list[str]>
+actions              = []                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = ""                   # <int>
+tasker_updates       = []                   # <list[str]>
+print_level          = ""                   # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
