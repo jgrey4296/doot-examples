@@ -1,0 +1,59 @@
+[tasks]
+# tasks.{descriptive_group} as multi-tables.
+# each entry is a task or tasker
+[[tasks.action-check]]
+name         = "basic"
+print_level  = "DEBUG"  # The level the user facing printer responds to
+ctor         = "task"
+doc          = ["blah blah blah", "bloo"]
+runs-after   = ["action-check::_preTask"]
+actions      = [["ls", "bloo", "blee"],
+                ["Another Action"]]
+
+[[tasks.action-check]]
+disable     = false
+name        = "_preTask"
+print_level = "INFO"
+ctor        = "task"
+runs-after  = ["action-check::_preTask2"]
+actions     = [[ "A Pre-Task" ]]
+
+[[tasks.action-check]]
+name        = "_preTask2"
+print_level = "INFO"
+ctor        = "task"
+actions     = [[ "A Pre-Pre-Task" ]]
+
+[[tasks.tasker-example]]
+name      = "tasker example"
+ctor      = "tasker"
+subtask   = "task"
+
+[[tasks.globber]]
+name        = "basic"
+print_level = "INFO"
+ctor        = "globber"
+roots       = ["{tasks}"]
+exts        = [".toml"]
+recursive   = true
+subtask     = "globber::_subtask"
+head_task   = "globber::_custom_head"
+
+[[tasks.globber]]
+name        = "_subtask"
+print_level = "WARN"
+ctor        = "doot.task.base_task:DootTask"
+fpath       = "DEFAULT"
+actions     = [{ ctor ="basic", args = ["Globbed: {fpath}"], inState=["fpath"] },
+               { ctor = "shell" , args = ["head", "-n", "5", "{fpath}" ] },
+               # { ctor = "doot.acitons.postbox:PutPostAction", args = [ "{fpath:str}", "{fpath:raw}" ], inState=["fpath"] },
+               ]
+
+[[tasks.globber]]
+name        = "_custom_head"
+print_level = "INFO"
+ctor        = "task"
+actions     = [{ ctor = "basic", args = ["Globbed Final"] },
+               { ctor = "shell", args = ["ls", "-l", "."]},
+               # { ctor = "doot.actions.postbox:GetPostAction", args = [ "{root}" ] }
+               ]

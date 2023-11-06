@@ -1,0 +1,15 @@
+[[tasks.default]]
+name                 = "globber"
+version              = "0.1"                # <str>
+ctor                 = "doot.task.globber:DootEagerGlobber" # <type>
+doc                  = ["Tasker : DootTasker v0.1    (doot.task.base_tasker:DootTasker)", "", "A Basic Task Constructor"] # <list[str]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = 10                   # <int>
+print_level          = "INFO"               # <str>
+flags                = [ "TASKER" ]         # <TaskFlags>
+head_task            = "TODO"               # <task_iden>
+subtask              = "TODO"               # <task_iden>
+exts                 = []                   # <list[str]>
+roots                = ["."]                # <list[str|pl.Path]>  Places the globber will start
+recursive            = false                # <bool>
