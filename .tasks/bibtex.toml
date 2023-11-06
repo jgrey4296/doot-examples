@@ -5,7 +5,7 @@ version              = "0.1"                # <str>
 ctor                 = "doot.task.base_task:DootTask" # <type>
 doc                  = ["a basic bibtex load task with explicit file specified"] # <list[str]>
 actions              = [
-                     { ctor = "doot.actions.state:AddState", bib_files=["{data}/1637.bib"]},
+                     { ctor = "doot.actions.state:AddStateAction", bib_files=["{data}/1637.bib"]},
                      { ctor = "dootle.bibtex.actions:BibtexInitAction", bib_uniq=false, outState=["bib_db"]},
                      { ctor = "dootle.bibtex.actions:BibtexLoadAction", inState=["bib_db"] },
                      { ctor = "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },

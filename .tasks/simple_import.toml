@@ -1,0 +1,13 @@
+[[tasks.simple]]
+name                 = "pyimp"
+version              = "0.1"                # <str>
+ctor                 = "doot.task.base_task:DootTask" # <type>
+doc                  = ["An example of importing local code for an action"] # <list[str]>
+actions              = [
+                     { ctor="tasks_code.basic:simple"}
+]                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = 10                   # <int>
+print_level          = "INFO"               # <str>
+flags                = [ "TASK" ]           # <TaskFlags>
