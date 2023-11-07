@@ -1,0 +1,45 @@
+[[locations]]
+backup = "backup"
+
+[[tasks.backup]]
+name                      = "head"
+version                   = "0.1"                # <str>
+ctor                      = "globber"            # <type>
+doc                       = []                   # <list[str]>
+runs_before               = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after                = []                   # <list[DootTaskArtifact | pl.Path | str]>
+print_level               = "INFO"               # <str>
+flags                     = [ "TASK" ]           # <TaskFlags>
+clean_locs                = ["{backup}"]
+head_task                 = "backup::_posthead"
+subtask                   = "backup::_body"               # <task_iden>
+exts                      = [".bib"]                      # <list[str]>
+roots                     = ["{data}"]                    # <list[str|pl.Path]>  Places the globber will start
+recursive                 = false                         # <bool>
+
+[[tasks.backup]]
+name                 = "_body"
+version              = "0.1"                # <str>
+ctor                 = "task"               # <type>
+doc                  = []                   # <list[str]>
+print_level          = "WARN"
+action_level         = "WARN"
+actions              = [
+                     {ctor="backup", source="fpath", dest="{backup}/{fstem}.bib"}
+]                   # <list[Any]>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+flags                = [ "TASK" ]           # <TaskFlags>
+
+
+[[tasks.backup]]
+name                 = "_posthead"
+version              = "0.1"                # <str>
+ctor                 = "task" # <type>
+doc                  = [] # <list[str]>
+print_level          = "INFO"
+action_level         = "INFO"
+actions              = [
+                     {ctor="shell", args=["fdfind", "\\.bib", "{data}"] },
+                     {ctor="doot.actions.postbox:SummarizePostAction"},
+]                   # <list[Any]>
