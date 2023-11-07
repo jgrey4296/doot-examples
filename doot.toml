@@ -12,6 +12,9 @@ stream  = { level="WARN",  allow=["doot"], format="{levelname:<8} : {message}", 
 file    = { level="DEBUG", allow=["doot"], format="{levelname:<8} : {message:<20} :|: (module:{module} line:{lineno} fn:{funcName})" }
 printer = { level="INFO", colour=true }
 
+[commands]
+clean = { locs = ["{temp}"] }
+
 [globbing]
 ignores  = ['.git', '.DS_Store', "__pycache__"]
 

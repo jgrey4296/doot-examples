@@ -44,7 +44,7 @@ actions              = [
                      { ctor = "dootle.bibtex.actions:BibtexInitAction", outState=["bib_db"]},
                      { ctor = "dootle.bibtex.actions:BibtexLoadAction", load_key="fpath", inState=["bib_db", "fpath"] },
                      { ctor = "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
-                     { ctor = "doot.actions.io:WriteAction", inState=["bib_text"], target="{temp}/", fname="{fstem}_b.bib", data="bib_text"},
+                     { ctor = "doot.actions.io:WriteAction", inState=["bib_text"], target="{temp}/bib/", fname="{fstem}_b.bib", data="bib_text"},
                      { ctor = "dootle.bibtex.actions:BibtexMergeAction" },
                      ] # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>

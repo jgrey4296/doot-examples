@@ -39,6 +39,9 @@ logging = logmod.getLogger(__name__)
 
 
 def simple(spec, state):
+    """
+      the simplest possible local action.
+    """
     print("blah")
 
 
