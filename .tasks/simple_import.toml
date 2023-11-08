@@ -4,7 +4,9 @@ version              = "0.1"                # <str>
 ctor                 = "doot.task.base_task:DootTask" # <type>
 doc                  = ["An example of importing local code for an action"] # <list[str]>
 actions              = [
-                     { ctor="tasks_code.basic:simple"}
+                     # { do="tasks_code.basic:simple"},
+                     { do="addFn", fn="tasks_code.basic:simple", outState=["fn"] },
+                     { do="tasks_code.basic:caller", fn="fn", inState=["fn"] },
 ]                   # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>

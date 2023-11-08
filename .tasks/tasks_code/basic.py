@@ -37,14 +37,34 @@ import more_itertools as mitz
 logging = logmod.getLogger(__name__)
 ##-- end logging
 
+printer = logmod.getLogger("doot._printer")
+from doot.task.globber import _GlobControl as globc
+from doot.enums import ActionResponseEnum as ActRE
+
+def caller(spec, state):
+    """
+      Calls the function in the state key going from spec.kwargs.fn
+      ie:
+      state[spec.kwargs.fn](spec, state)
+    """
+    printer.info("Using: %s", spec.kwargs.fn)
+    state[spec.kwargs.fn](spec, state)
 
 def simple(spec, state):
     """
       the simplest possible local action.
     """
-    print("blah")
+    printer.info("blah")
 
+def glob_filter(target:pl.Path) -> bool | _GlobControl:
+    if target.is_dir():
+        return globc.noBut
+    if target.stem in ["1567", "1700", "1733"]:
+        return globc.yes
+    return globc.no
 
+def skip_fn(spec, state):
+    pass
 
 
 """

@@ -5,11 +5,11 @@ version              = "0.1"                # <str>
 ctor                 = "doot.task.base_task:DootTask" # <type>
 doc                  = ["a basic bibtex load task with explicit file specified"] # <list[str]>
 actions              = [
-                     { ctor = "doot.actions.state:AddStateAction", bib_files=["{data}/1637.bib"]},
-                     { ctor = "dootle.bibtex.actions:BibtexInitAction", bib_uniq=false, outState=["bib_db"]},
-                     { ctor = "dootle.bibtex.actions:BibtexLoadAction", inState=["bib_db"] },
-                     { ctor = "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
-                     { ctor = "doot.actions.io:WriteAction", inState=["bib_text"], target="{temp}/out.bib", data="bib_text"},
+                     { do= "doot.actions.state:AddStateAction", bib_files=["{data}/1637.bib"]},
+                     { do= "dootle.bibtex.actions:BibtexInitAction", bib_uniq=false, outState=["bib_db"]},
+                     { do= "dootle.bibtex.actions:BibtexLoadAction", inState=["bib_db"] },
+                     { do= "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
+                     { do= "doot.actions.io:WriteAction", inState=["bib_text"], target="{temp}/out.bib", data="bib_text"},
                      ] # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
@@ -29,7 +29,7 @@ priority             = 10                   # <int>
 print_level          = "INFO"               # <str>
 flags                = [ "TASKER" ]         # <TaskFlags>
 head_task            = "bib::_glob_collect"               # <task_iden>
-subtask              = "bib::_glob_bib"     # <task_iden>
+sub_task              = "bib::_glob_bib"     # <task_iden>
 exts                 = [".bib"]                   # <list[str]>
 roots                = ["{data}"]                # <list[str|pl.Path]>  Places the globber will start
 recursive            = false                # <bool>
@@ -41,11 +41,11 @@ ctor                 = "doot.task.base_task:DootTask" # <type>
 doc                  = ["An example bibtex load task for the globber", "writes out the loaded file, and merges it with the others"] # <list[str]>
 sleep                = 2
 actions              = [
-                     { ctor = "dootle.bibtex.actions:BibtexInitAction", outState=["bib_db"]},
-                     { ctor = "dootle.bibtex.actions:BibtexLoadAction", load_key="fpath", inState=["bib_db", "fpath"] },
-                     { ctor = "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
-                     { ctor = "doot.actions.io:WriteAction", inState=["bib_text"], target="{temp}/bib/", fname="{fstem}_b.bib", data="bib_text"},
-                     { ctor = "dootle.bibtex.actions:BibtexMergeAction" },
+                     { do= "dootle.bibtex.actions:BibtexInitAction", outState=["bib_db"]},
+                     { do= "dootle.bibtex.actions:BibtexLoadAction", load_key="fpath", inState=["bib_db", "fpath"] },
+                     { do= "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
+                     { do= "doot.actions.io:WriteAction", inState=["bib_text"], target="{temp}/bib/", fname="{fstem}_b.bib", data="bib_text"},
+                     { do= "dootle.bibtex.actions:BibtexMergeAction" },
                      ] # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
@@ -59,9 +59,9 @@ version              = "0.1"                # <str>
 ctor                 = "doot.task.base_task:DootTask" # <type>
 doc                  = ["the head of the bibtex globber, writing the merged database to a single file "] # <list[str]>
 actions              = [
-                     { ctor = "dootle.bibtex.actions:BibtexMergeAction", outState=["bib_db"] },
-                     { ctor = "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
-                     { ctor = "doot.actions.io:WriteAction", inState=["bib_text"], target="{temp}/collected.bib", data="bib_text"},
+                     { do= "dootle.bibtex.actions:BibtexMergeAction", outState=["bib_db"] },
+                     { do= "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
+                     { do= "doot.actions.io:WriteAction", inState=["bib_text"], target="{temp}/collected.bib", data="bib_text"},
                      ] # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>

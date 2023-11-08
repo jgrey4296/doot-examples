@@ -1,15 +1,32 @@
-[[tasks.default]]
-name                 = "globber"
+[[tasks.globs]]
+name                      = "filtered"
+version                   = "0.1"                                # <str>
+ctor                      = "doot.task.globber:DootEagerGlobber" # <type>
+exts                      = [".bib"]                             # <list[str]>
+roots                     = ["{data}"]                           # <list[str|pl.Path]>  Places the globber will start
+filter_fn                 = "tasks_code.basic:glob_filter"
+recursive                 = true
+sub_task                   = "globs::_simple"
+head_task                 = "globs::_fin"
+print_levels              = {head="INFO"}
+
+
+
+[[tasks.globs]]
+name                 = "_simple"
 version              = "0.1"                # <str>
-ctor                 = "doot.task.globber:DootEagerGlobber" # <type>
-doc                  = ["Tasker : DootTasker v0.1    (doot.task.base_tasker:DootTasker)", "", "A Basic Task Constructor"] # <list[str]>
-runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
-runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
-priority             = 10                   # <int>
-print_level          = "INFO"               # <str>
-flags                = [ "TASKER" ]         # <TaskFlags>
-head_task            = "TODO"               # <task_iden>
-subtask              = "TODO"               # <task_iden>
-exts                 = []                   # <list[str]>
-roots                = ["."]                # <list[str|pl.Path]>  Places the globber will start
-recursive            = false                # <bool>
+ctor                 = "task" # <type>
+print_levels         = {head="INFO", action="WARN", execute="INFO"}
+actions              = [
+                     { do="log", msg="Value: {fname}"}
+]                   # <list[Any]>
+
+[[tasks.globs]]
+name                 = "_fin"
+version              = "0.1"                # <str>
+ctor                 = "task" # <type>
+print_levels         = {head="INFO"}
+actions              = [
+                     { do="log", msg="Finished Filtered Glob"}
+]                   # <list[Any]>
+

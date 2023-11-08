@@ -12,7 +12,7 @@ print_level               = "INFO"               # <str>
 flags                     = [ "TASK" ]           # <TaskFlags>
 clean_locs                = ["{backup}"]
 head_task                 = "backup::_posthead"
-subtask                   = "backup::_body"               # <task_iden>
+sub_task                   = "backup::_body"               # <task_iden>
 exts                      = [".bib"]                      # <list[str]>
 roots                     = ["{data}"]                    # <list[str|pl.Path]>  Places the globber will start
 recursive                 = false                         # <bool>
@@ -25,7 +25,7 @@ doc                  = []                   # <list[str]>
 print_level          = "WARN"
 action_level         = "WARN"
 actions              = [
-                     {ctor="backup", source="fpath", dest="{backup}/{fstem}.bib"}
+                     {do="backup", source="fpath", dest="{backup}/{fstem}.bib"}
 ]                   # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
@@ -40,6 +40,6 @@ doc                  = [] # <list[str]>
 print_level          = "INFO"
 action_level         = "INFO"
 actions              = [
-                     {ctor="shell", args=["fdfind", "\\.bib", "{data}"] },
-                     {ctor="doot.actions.postbox:SummarizePostAction"},
+                     {do="shell", args=["fdfind", "\\.bib", "{data}"] },
+                     {do="doot.actions.postbox:SummarizePostAction"},
 ]                   # <list[Any]>
