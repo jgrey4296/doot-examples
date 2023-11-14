@@ -1,0 +1,30 @@
+[[locations]]
+firefox   = "/home/john/snap/firefox/common/.mozilla/firefox"
+bookmarks = "/media/john/data/github/bibliography/bookmarks/total.bookmarks"
+
+
+[[tasks.bookmark]]
+name                 = "head"
+version              = "0.1"                # <str>
+ctor                 = "doot.task.base_task:DootTask" # <type>
+doc                  = [] # <list[str]>
+db_name              = "places.sqlite"
+actions              = [
+                     # copy the db from {firefox}/../{db_name} -> {temp}
+                     # extract
+                     # load {bookmarks}
+                     # merge into {bookmarks}
+                     # write to {bookmarks}
+]                   # <list[Any]>
+
+[[tasks.bookmark]]
+name                 = "chore"
+version              = "0.1"                # <str>
+ctor                 = "doot.task.base_task:DootTask" # <type>
+doc                  = [] # <list[str]>
+db_name              = "places.sqlite"
+actions              = [
+                     # load {bookmarks}
+                     # remove duplicates
+                     # write to {bookmarks}
+]                   # <list[Any]>

@@ -3,12 +3,10 @@
 name                 = "_simple"
 version              = "0.1"                # <str>
 ctor                 = "doot.task.base_task:DootTask" # <type>
-doc                  = ["Task   : DootTask v0.1", "The Simplest Task"] # <list[str]>
 actions              = []                   # <list[Any]>
 runs_before          = ["order::post"]                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = ["order::_pre"]                   # <list[DootTaskArtifact | pl.Path | str]>
 priority             = 10                   # <int>
-print_level          = "INFO"               # <str>
 flags                = [ "TASK" ]           # <TaskFlags>
 
 
@@ -16,22 +14,18 @@ flags                = [ "TASK" ]           # <TaskFlags>
 name                 = "_pre"
 version              = "0.1"                # <str>
 ctor                 = "doot.task.base_task:DootTask" # <type>
-doc                  = ["Task   : DootTask v0.1", "The Simplest Task"] # <list[str]>
 actions              = []                   # <list[Any]>
 runs_before          = ["order::post"]                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
 priority             = 10                   # <int>
-print_level          = "INFO"               # <str>
 flags                = [ "TASK" ]           # <TaskFlags>
 
 [[tasks.order]]
 name                 = "post"
 version              = "0.1"                # <str>                
 ctor                 = "doot.task.base_task:DootTask" # <type>
-doc                  = ["Task   : DootTask v0.1", "The Simplest Task"] # <list[str]>
 actions              = []                   # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = ["order::_pre", "order::_simple"]                   # <list[DootTaskArtifact | pl.Path | str]>
 priority             = 10                   # <int>
-print_level          = "INFO"               # <str>
 flags                = [ "TASK" ]           # <TaskFlags>

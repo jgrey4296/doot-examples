@@ -1,0 +1,126 @@
+[[locations]]
+orgs          = "/media/john/big_ex/library/twitter"
+bibtex        = "/media/john/data/github/bibliography/main"
+bookmarks     = "/media/john/data/github/bibliography/bookmarks/total.bookmarks"
+substitutions = "/media/john/data/github/jgrey4296.github.io/resources/tags/substitutions/tags"
+
+[[tasks.tags]]
+name                 = "index"
+version              = "0.1"                          # <str>
+ctor                 = "task" # <type>
+doc                  = []                             # <list[str]>
+runs_after           = ["tags::index.orgs", "tags::index.bookmarks", "tags::index.bibtex"]
+actions              = [
+                     # load all {temp}/*.tags
+                     # merge
+                     # load {substitutions}/*.sub
+                     # rub subs on tags
+                     # write out
+
+]                             # <list[Any]>
+
+[[tasks.tags]]
+name                   = "index.bookmarks"
+version                = "0.1"                                # <str>
+ctor                   = "task"                             # <type>
+doc                    = []                                   # <list[str]>
+actions = [
+        # read {bookmarks}
+        # extract tags
+        # write to {temp}/bookmarks.tags
+]
+
+
+[[tasks.tags]]
+name                   = "index.orgs"
+version                = "0.1"                                                # <str>
+ctor                   = "walker"                                             # <type>
+doc                    = []                                                   # <list[str]>
+# head_task            = ""                                                   # <task_iden>
+sub_task             = "tags::index.orgfile"                                        # <task_iden>
+roots                  = ["{orgs}"]                                           # <list[str|pl.Path]>  Places the walker will start
+exts                   = [".org"]                                             # <list[str]>
+recursive              = true                                                 # <bool>
+
+[[tasks.tags]]
+name                   = "index.orgfile"
+version                = "0.1"                                # <str>
+ctor                   = "task"                               # <type>
+doc                    = []                                   # <list[str]>
+actions = [
+        # read {fpath}
+        # extract tags
+        # append to {temp}/orgs.rawtags
+]
+
+[[tasks.tags]]
+name                   = "index.bibtex"
+version                = "0.1"                                           # <str>
+ctor                   = "walker"                                        # <type>
+doc                    = []                                              # <list[str]>
+# head_task            = ""                                              # <task_iden>
+sub_task               = "tags::index.bibfile"                                   # <task_iden>
+roots                  = ["{bibtex}"]                                    # <list[str|pl.Path]>  Places the walker will start
+exts                   = [".bib"]                                        # <list[str]>
+
+
+[[tasks.tags]]
+name                   = "index.bibfile"
+version                = "0.1"                                # <str>
+ctor                   = "task"                               # <type>
+doc                    = []                                   # <list[str]>
+actions = [
+        # read {fpath}
+        # extract tags
+        # write to {temp}/{fstem}_bib.tags
+]
+
+##--------------------------------------------------
+[[tasks.tags]]
+name                 = "update"
+version              = "0.1"                # <str>
+ctor                 = "task" # <type>
+doc                  = [] # <list[str]>
+runs_after           = ["tags::update.orgs", "tags::update.bookmarks", "tags::update.bibtex"]                   # <list[DootTaskArtifact | pl.Path | str]>
+
+[[tasks.tags]]
+name                 = "update.bookmarks"
+version              = "0.1"                # <str>
+ctor                 = "task" # <type>
+doc                  = [] # <list[str]>
+actions = []
+
+[[tasks.tags]]
+name                   = "update.bibtex"
+version                = "0.1"                                           # <str>
+ctor                   = "walker"                                        # <type>
+doc                    = []                                              # <list[str]>
+# head_task            = ""                                              # <task_iden>
+sub_task               = "tags::update.bibfile"                                   # <task_iden>
+roots                  = ["{bibtex}"]                                    # <list[str|pl.Path]>  Places the walker will start
+exts                   = [".bib"]                                        # <list[str]>
+
+
+[[tasks.tags]]
+name                   = "update.orgs"
+version                = "0.1"                                           # <str>
+ctor                   = "walker"                                        # <type>
+doc                    = []                                              # <list[str]>
+# head_task            = ""                                              # <task_iden>
+sub_task               = "tags::update.orgfile"                                   # <task_iden>
+roots                  = ["{orgs}"]                                    # <list[str|pl.Path]>  Places the walker will start
+exts                   = [".org"]                                        # <list[str]>
+
+[[tasks.tags]]
+name                 = "update.bibfile"
+version              = "0.1"                # <str>
+ctor                 = "task" # <type>
+doc                  = [] # <list[str]>
+actions = []
+
+[[tasks.tags]]
+name                 = "update.orgfile"
+version              = "0.1"                # <str>
+ctor                 = "task" # <type>
+doc                  = [] # <list[str]>
+actions = []

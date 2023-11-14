@@ -6,14 +6,12 @@ image_temp       = "{temp}/images/"
 name                 = "basic"
 version              = "0.1"                # <str>
 ctor                 = "task" # <type>
-doc                  = ["Task   : MastodonPoster v0.1", "The Simplest Task"] # <list[str]>
 actions              = [
                      { do= "dootle.mastodon.actions:MastodonSetup" },
-                     { do= "dootle.mastodon.actions:set_text", args=["blah"] },
+                     { do= "addState", text="blah"},
                      { do= "dootle.mastodon.actions:MastodonPost" },
 ]                   # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
 priority             = 10                   # <int>
-print_level          = "INFO"               # <str>
 flags                = [ "TASK" ]           # <TaskFlags>

@@ -1,0 +1,26 @@
+[[tasks.interactive]]
+name                 = "python"
+version              = "0.1"                # <str>
+ctor                 = "doot.task.base_task:DootTask" # <type>
+doc                  = ["Task   : DootTask v0.1", "The Simplest Task"] # <list[str]>
+actions              = [
+                     {do="interact", args=["python", "-i"]},
+]                   # <list[Any]>
+priority             = 10                   # <int>
+print_levels         = {}                   # <Dict: {'build', 'execute', 'action', 'sleep', 'head'}>
+flags                = [ "TASK" ]           # <TaskFlags>
+inject               = []                   # <list[str]>
+
+
+[[tasks.interactive]] # TODO
+name                 = "haskell"
+version              = "0.1"                # <str>
+ctor                 = "doot.task.base_task:DootTask" # <type>
+doc                  = ["Task   : DootTask v0.1", "The Simplest Task"] # <list[str]>
+actions              = [
+                     {do="interact", args=["ghci", "--interactive"], prompt="λ> "},
+]                   # <list[Any]>
+priority             = 10                   # <int>
+print_levels         = {}                   # <Dict: {'build', 'execute', 'action', 'sleep', 'head'}>
+flags                = [ "TASK" ]           # <TaskFlags>
+inject               = []                   # <list[str]>

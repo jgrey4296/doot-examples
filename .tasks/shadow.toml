@@ -1,0 +1,16 @@
+
+[[tasks.default]]
+name                 = "shadow"
+version              = "0.1"                # <str>
+ctor                 = "doot.task.tree_shadower:DootTreeShadower" # <type>
+runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
+runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
+priority             = 10                   # <int>
+print_levels         = {}                   # <Dict: {'build', 'head', 'action', 'sleep', 'execute'}>
+# flags                = [ "TASKER" ]         # <TaskFlags>
+# head_task            = ""                   # <task_iden>
+# sub_task             = ""                   # <task_iden>
+# exts                 = []                   # <list[str]>
+roots                = ["."]                # <list[str|pl.Path]>  Places the globber will start
+# recursive            = false                # <bool>
+# filter_fn            = ""                   # <callable>

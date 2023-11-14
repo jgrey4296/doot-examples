@@ -1,0 +1,11 @@
+
+[[tasks.godot]]
+name                 = "head"
+version              = "0.1"                # <str>
+ctor                 = "task" # <type>
+doc                  = [] # <list[str]>
+actions              = [
+                     { do="dootle.godot.actions:GodotProjectCheck" },
+                     { do="dootle.godot.actions:GodotRunSceneAction", scene="node_2d.tscn", quit-after=20},
+
+]                   # <list[Any]>

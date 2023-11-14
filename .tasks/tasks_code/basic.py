@@ -38,7 +38,7 @@ logging = logmod.getLogger(__name__)
 ##-- end logging
 
 printer = logmod.getLogger("doot._printer")
-from doot.task.globber import _GlobControl as globc
+from doot.task.dir_walker import _WalkControl as globc
 from doot.enums import ActionResponseEnum as ActRE
 
 def caller(spec, state):

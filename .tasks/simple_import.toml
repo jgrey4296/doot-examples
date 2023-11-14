@@ -11,5 +11,4 @@ actions              = [
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>
 priority             = 10                   # <int>
-print_level          = "INFO"               # <str>
 flags                = [ "TASK" ]           # <TaskFlags>
