@@ -6,12 +6,13 @@ name                 = "basic.load"
 version              = "0.1"                                                     # <str>
 ctor                 = "task"                                                    # <type>
 doc                  = ["a basic bibtex load task with explicit file specified"] # <list[str]>
+bib_files            = ["{bib}/1637.bib", "{bib}/1773.bib"]
 actions              = [
-                     { do= "doot.actions.state:AddStateAction", bib_files=["{bib}/1637.bib"]},
-                     { do= "dootle.bibtex.actions:BibtexInitAction", bib_uniq=false, outState=["bib_db"]},
-                     { do= "dootle.bibtex.actions:BibtexLoadAction", inState=["bib_db"] },
-                     { do= "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
-                     { do= "write!", inState=["bib_text"], target="{temp}/out.bib", data="bib_text"},
+                     # { do= "doot.actions.state:AddStateAction", bib_files=["{bib}/1637.bib"]},
+                     { do= "dootle.bibtex.actions:BibtexInitAction",  bib_uniq=false, update_="bib_db"},
+                     { do= "dootle.bibtex.actions:BibtexLoadAction",  from_="bib_files", update_="bib_db" },
+                     { do= "dootle.bibtex.actions:BibtexToStrAction", from_="bib_db", update_="bib_text" },
+                     { do= "write!", from_="bib_text", to="{temp}/out.bib" },
                      ]                       # <list[Any]>
 
 
@@ -20,7 +21,6 @@ name                 = "walker"
 version              = "0.1"                                              # <str>
 ctor                 = "walker"                                           # <type>
 doc                  = ["A walker entry point for loading bibtex files"] # <list[str]>
-flags                = [ "TASKER" ]                                       # <TaskFlags>
 head_task            = "bib::_walk_collect"                               # <task_iden>
 sub_task              = "bib::_walk_bib"                                  # <task_iden>
 exts                 = [".bib"]                                           # <list[str]>
@@ -32,26 +32,23 @@ name                 = "_walk_bib"
 version              = "0.1"                                                                                                        # <str>
 ctor                 = "doot.task.base_task:DootTask"                                                                               # <type>
 doc                  = ["An example bibtex load task for the globber", "writes out the loaded file, and merges it with the others"] # <list[str]>
-sleep                = 2
+sleep                = 0.1
 actions              = [
-                     { do= "dootle.bibtex.actions:BibtexInitAction", outState=["bib_db"]},
-                     { do= "dootle.bibtex.actions:BibtexLoadAction", load_key="fpath", inState=["bib_db", "fpath"] },
-                     { do= "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
-                     { do= "write!", inState=["bib_text"], target="{temp}/bib/", fname="{fstem}_b.bib", data="bib_text"},
-                     { do= "dootle.bibtex.actions:BibtexMergeAction" },
+                     { do="dir!", args=["{temp}/bib"] },
+                     { do= "dootle.bibtex.actions:BibtexInitAction", update="bib_db"},
+                     { do= "dootle.bibtex.actions:BibtexLoadAction",  from_="fpath", db_key="bib_db" },
+                     { do= "dootle.bibtex.actions:BibtexToStrAction", from_="bib_db", update_="bib_text" },
+                     { do= "write!", from_="bib_text", to="{temp}/bib/{fstem}_b.bib" },
+                     { do= "dootle.bibtex.actions:BibtexMergeAction", from_="bib_db"},
                      ]                       # <list[Any]>
-runs_before          = []                    # <list[DootTaskArtifact | pl.Path | str]>
-runs_after           = []                    # <list[DootTaskArtifact | pl.Path | str]>
-priority             = 10                    # <int>
-flags                = [ "TASK" ]            # <TaskFlags>
 
 [[tasks.bib]]
 name                 = "_walk_collect"
 version              = "0.1"                                                                             # <str>
-ctor                 = "doot.task.base_task:DootTask"                                                    # <type>
+ctor                 = "task"                                                    # <type>
 doc                  = ["the head of the bibtex globber, writing the merged database to a single file "] # <list[str]>
 actions              = [
-                     { do= "dootle.bibtex.actions:BibtexMergeAction", outState=["bib_db"] },
-                     { do= "dootle.bibtex.actions:BibtexToStrAction", inState=["bib_db"], outState=["bib_text"] },
-                     { do= "write!", inState=["bib_text"], target="{temp}/collected.bib", data="bib_text"},
+                     { do= "dootle.bibtex.actions:BibtexMergeAction", from_="bib_db", update_="bib_db" },
+                     { do= "dootle.bibtex.actions:BibtexToStrAction", from_="bib_db", update_="bib_text" },
+                     { do= "write!", from_="bib_text", to="{temp}/collected.bib" },
                      ]                       # <list[Any]>

@@ -6,7 +6,7 @@ firefox   = "/home/john/snap/firefox/common/.mozilla/firefox"
 [[tasks.bookmark]]
 name                 = "head"
 version              = "0.1"                # <str>
-ctor                 = "doot.task.base_task:DootTask" # <type>
+ctor                 = "task" # <type>
 doc                  = [] # <list[str]>
 db_name              = "places.sqlite"
 runs_after           = ["bookmark::firefox", "bookmark::archived"]
@@ -19,7 +19,7 @@ actions              = [
                      { do="write!", from_="bkmks_str", to="{temp}/merged.bookmarks" },
                      { do="doot.actions.state:AddNow", format="%Y-%m-%d : %H:%M", update_="_date"},
                      { do="doot.actions.io:AppendAction", args=["* {_date}", "{bkmks_str}"], to="{temp}/append.test" },
-                     { do="write!", from_="bkmks_str", to="{bookmarks}" },
+                     # { do="write!", from_="bkmks_str", to="{bookmarks}" },
 ]                                                                                                        # <list[Any]>
 
 [[tasks.bookmark]]
