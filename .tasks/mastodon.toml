@@ -9,7 +9,7 @@ ctor                 = "task" # <type>
 actions              = [
                      { do= "dootle.mastodon.actions:MastodonSetup" },
                      { do= "addState", text="blah"},
-                     { do= "dootle.mastodon.actions:MastodonPost" },
+                     { do= "dootle.mastodon.actions:MastodonPost", from_="text" },
 ]                   # <list[Any]>
 runs_before          = []                   # <list[DootTaskArtifact | pl.Path | str]>
 runs_after           = []                   # <list[DootTaskArtifact | pl.Path | str]>

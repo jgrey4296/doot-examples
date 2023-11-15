@@ -20,7 +20,7 @@ ctor                 = "task"               # <type>
 print_levels          = { execute="WARN", action="WARN" }
 actions              = [
                      {do="dir!", args=["{shadow_path}"] },
-                     {do="backup!", source="fpath", dest="{shadow_path}/{fname}"}
+                     {do="backup!", from_="fpath", to="{shadow_path}/{fname}"}
 ]                   # <list[Any]>
 
 
