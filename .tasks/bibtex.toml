@@ -30,7 +30,7 @@ recursive            = false                                              # <boo
 [[tasks.bib]]
 name                 = "_walk_bib"
 version              = "0.1"                                                                                                        # <str>
-ctor                 = "doot.task.base_task:DootTask"                                                                               # <type>
+ctor                 = "task"                                                                                                       # <type>
 doc                  = ["An example bibtex load task for the globber", "writes out the loaded file, and merges it with the others"] # <list[str]>
 sleep                = 0.1
 actions              = [
