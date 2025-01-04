@@ -1,0 +1,38 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    # -   id: check-added-large-files
+
+-   repo: https://gitlab.com/adam-moss/pre-commit-trailer
+    rev: v1.1.0
+    hooks:
+        - id: add-pre-commit-config-trailer
+
+-   repo: local
+    hooks: []
+    # - id: simple.msg
+    #   name: simple.msg
+    #   description: simple msg
+    #   language: system
+    #   entry: mamba run "-n" "doot-dev" doot "test::simple.msg"
+    #   always_run: true
+    #   verbose: true
+    #   pass_filenames: true
+    #   require_serial: true
+    #   stages: [prepare-commit-msg]
+    # - id: simple.pre
+    #   name: simple.pre
+    #   description: simple pre commit check
+    #   language: system
+    #   entry: mamba run "-n" "doot-dev" doot "test::simple.precommit"
+    #   always_run: true
+    #   verbose: true
+    #   pass_filenames: true
+    #   require_serial: true
+    #   stages: [pre-commit]
