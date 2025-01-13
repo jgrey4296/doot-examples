@@ -1,9 +1,0 @@
-## simple.toml -*- mode: toml -*-
-doot_version = "0.13"
-
-[[tasks.simple]]
-name         = "msg"
-ctor         = "task"
-actions      = [
-        {do="log", msg="A Simple Message"},
-]
