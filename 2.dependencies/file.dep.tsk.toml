@@ -1,0 +1,37 @@
+## file.dep.tsk.toml -*- mode: toml-mode -*-
+# reminders:
+# action = [{do= "basic", args=[], inState=[], outState=[] }]
+# cli    = [{name="", type="str", prefix="-", default="", desc="", positional=false}]
+
+doot_version = "0.13"
+
+[[state]]     # Key=vals for all tasks
+
+[[locations]]
+
+[tasks]
+
+[[tasks."file.dep"]]
+name        = "top"
+doc         = ["An example of file dependencies"]
+depends-on  = ["file.dep::yes"]
+
+[[tasks."file.dep"]]
+disabled             = true
+name                 = "no"
+doc                  = ["This shouldn't run, because the file doesn't exist"]
+depends-on           = ["file::>./not-there.txt"]
+
+[[tasks."file.dep"]]
+name                 = "yes"
+doc                  = ["this should run"]
+actions              = [{do="log", msg="File Exists"}]
+depends-on           = ["file::>./is-there.txt"]
+
+
+[[tasks."file.dep"]]
+name                  = "make.file"
+doc                   = ["this will create file.deps.op's file dependency"]
+val                   = "some simple data"
+actions               = [{do="write!", from_="val", to="./is-there.txt"}]
+required-for          = ["file::>./is-there.txt"]

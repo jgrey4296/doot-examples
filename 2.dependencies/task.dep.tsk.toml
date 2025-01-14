@@ -1,0 +1,18 @@
+## ordering.toml -*- mode: toml -*-
+doot-version = "0.13"
+
+[[tasks."task.dep"]]
+name                 = "top"
+doc                  = ["An example of transitive task requirements"]
+depends-on           = ["task.dep::_.mid"]
+actions              = [{do="log", msg="Top"}]
+
+[[tasks."task.dep"]]
+name                 = "_.mid"
+depends-on           = ["task.dep::_.bottom"]
+actions              = [{do="log", msg="Middle"}]
+
+[[tasks."task.dep"]]
+name                 = "_.bottom"
+required-for         = ["task.dep::_.mid"]
+actions              = [{do="log", msg="Bottom"}]
