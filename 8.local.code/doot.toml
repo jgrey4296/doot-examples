@@ -1,0 +1,69 @@
+# -*- mode:toml; -*-
+[startup]
+doot_version         = "0.13"
+loaders              = { commands="default", task="default", parser="default" }
+location_check       = { make_missing=true }
+sources              = { tasks=[".tasks"], code=["."] }
+sleep                = { task=0.2, subtask=1, batch=1 }
+max_steps            = 100_000
+skip_default_plugins = false
+skip_plugin_search   = false
+empty_cmd            = "list"
+implicit_task_cmd    = "run"
+# default_task       = ""
+# constants_file     = ""
+# aliases_file       = ""
+
+[startup.plugins]
+# Allows for defining aliases
+command        = { tasks="doot.cmds.list_cmd:ListCmd"}
+
+[shutdown]
+notify           = { speak=false } # success_msg="", fail_msg=""
+defaulted_values = { write=false, path=".defaulted_values.toml" }
+
+[settings.commands]
+[settings.commands.run]
+tracker     = "default"
+runner      = "default"
+reporter    = "default"
+report-line = []
+
+[settings.commands.list]
+hide = []
+aliases = { tasks=[] }
+
+[logging]
+# Standard loggers. See jgdv.logging.LoggerSpec.
+# Additional Level aliases: detail=debug, trace=info, user=warning
+stream  = { level="user",   filter=[],             target="stdout", format="{levelname:<8} : {message}"  }
+file    = false
+printer = { level="NOTSET", colour=true,           target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
+
+[logging.subprinters]
+default       = {level="user"}
+setup         = {level="error"}
+header        = true
+cmd           = {level="user",  colour="cyan"}
+task_header   = {level="user",  colour="magenta"}
+task          = {level="error", colour="white"}
+action_exec   = {level="user",  colour="cyan"}
+shutdown      = {level="user"}
+
+[tasks]
+
+[[tasks.example]]
+name                 = "local.task"
+ctor                 = "cls::local_code:SimpleTaskExample" # <type>
+doc                  = ["A Task demonstrating a custom local task",
+                        "that adds a head and tail automatically"] # <list[str]>
+actions              = [
+                     {do="log", msg="blah"}
+]
+
+[[tasks.example]]
+name                 = "local.action"
+doc                  = ["An example of importing local code for an action"] # <list[str]>
+actions              = [
+                     { do="fn::local_code:simple"},
+]
