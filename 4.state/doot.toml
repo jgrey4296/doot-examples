@@ -42,6 +42,7 @@ printer = { level="NOTSET", colour=true,           target=["stdout"], format="{m
 
 [logging.subprinters]
 default       = {level="user"}
+setup         = {level="user", prefix="---- "}
 header        = true
 cmd           = {level="user",  colour="cyan"}
 task_header   = {level="user",  colour="magenta"}
@@ -53,9 +54,22 @@ shutdown      = {level="user"}
 
 [[locations]]
 
+
+[[global.state]]
+global_value = "bloo"
+
 [[tasks.state]]
-name        = "basic"
+name        = "local"
 a_value     = "blah"
 actions     = [
-            {do="log", msg="Getting the value from local state: {a_value}", level="user"}
+            {do="log", msg="Getting the value from local state: {a_value}", level="user"},
+            {do="log", msg="(it should be 'blah')", level="user"},
+]
+
+
+[[tasks.state]]
+name = "global"
+actions = [
+        {do="log", msg="Getting the value from local state: {global_value}", level="user"},
+        {do="log", msg="(it should be 'bloo')", level="user"},
 ]
