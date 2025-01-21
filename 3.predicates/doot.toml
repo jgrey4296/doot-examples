@@ -1,4 +1,4 @@
-# -*- mode:conf-toml; -*-
+# -*- mode:toml; -*-
 [startup]
 doot_version         = "0.13"
 loaders              = { commands="default", task="default", parser="default" }
@@ -40,12 +40,10 @@ printer = { level="NOTSET", colour=true,            target=["stdout"], format="{
 
 [logging.subprinters]
 default       = {level="user"}
-header        = true
 cmd           = {level="user",  colour="cyan"}
 task_header   = {level="user",  colour="magenta"}
 task          = {level="user",  colour="white"}
 action_exec   = {level="user",  colour="cyan"}
-shutdown      = {level="user"}
 
 [[locations]]
 

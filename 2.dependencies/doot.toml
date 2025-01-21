@@ -1,4 +1,4 @@
-# -*- mode:conf-toml; -*-
+# -*- mode:toml; -*-
 [startup]
 doot_version         = "0.13"
 loaders              = { commands="default", task="default", parser="default" }
@@ -35,16 +35,10 @@ hide = []
 [logging]
 # Standard loggers. See LoggerSpec.
 stream  = { level="WARNING", filter=[],             target="stdout",   format="{levelname:<8} : {message}"  }
-file    = { disabled=true }
+file    = false
 printer = { level="NOTSET", colour=true,            target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
 
 [logging.subprinters]
-default       = {level="WARNING"}
-shutdown      = {level="INFO"}
-cmd           = {level="INFO"}
-task          = {level="INFO" }
-header        = {level="INFO" }
-task_header   = {level="INFO"}
-help          = {level="INFO"}
+default       = {level="user"}
 
 [[locations]]

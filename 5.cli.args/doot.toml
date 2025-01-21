@@ -42,18 +42,16 @@ printer = { level="NOTSET", colour=true,           target=["stdout"], format="{m
 
 [logging.subprinters]
 default       = {level="user"}
-header        = true
 cmd           = {level="user",  colour="cyan"}
 task_header   = {level="user",  colour="magenta"}
 task          = {level="user",  colour="white"}
 action_exec   = {level="user",  colour="cyan"}
-shutdown      = {level="user"}
 
 
 [[tasks.example]]
-name = "cli.args"
-docs = ["call with 'doot example::cli.args -arg {a string}'"]
-cli = [{prefix="-", name="arg", type="str", default="blah"}]
+name    = "cli.args"
+doc     = ["call with 'doot example::cli.args -arg {a string}'"]
+cli     = [{prefix="-", name="arg", type="str", default="blah"}]
 actions = [
         {do="log", msg="The CLI Arg was: {arg}"}
 ]

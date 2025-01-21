@@ -48,16 +48,10 @@ target       = ["stdout"]
 format       = "{message}"
 filename_fmt = "doot_printed.log"
 
-[logging.printer.secondary]
-default       = {level="WARNING"}
-shutdown      = {level="WARNING", format="Shutdown: {message}", target="stdout"}
-cmd           = {level="INFO"}
-task          = {level="INFO" }
-header        = {level="INFO" }
-task_header   = {level="INFO"}
+[logging.subprinters]
+default       = {level="user"}
 
 [[locations]]
-
 
 [[tasks.simple]]
 name         = "msg"
