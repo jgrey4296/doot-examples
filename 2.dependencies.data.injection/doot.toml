@@ -66,17 +66,17 @@ aweg         = "{blee}"
 blee         = "Full Immediate Expansion"
 depends_on   = [
 # Direct: map blah -> expanded(blah)
-{task="inject::target", inject={now=["blah"], suffix="direct.now"}},
+{task="inject::_.target", inject={now=["blah"], suffix="direct.now"}},
 # With indirection: map blah -> expanded(bloo_)
-{task="inject::target", inject={now={blah="bloo"}, suffix="indirect.now"}},
+{task="inject::_.target", inject={now={blah="bloo"}, suffix="indirect.now"}},
 # Delayed indirection: map blah -> l1(bloo_) -> aweg
-{task="inject::target", inject={delay={blah="bloo"}, suffix="direct.delayed"}},
+{task="inject::_.target", inject={delay={blah="bloo"}, suffix="direct.delayed"}},
 # Insert example
-{task="inject::target", inject={insert={blah="a direct insertion"}, suffix="insertion"}},
+{task="inject::_.target", inject={insert={blah="a direct insertion"}, suffix="insertion"}},
 ]
 
 [[tasks.inject]]
-name        = "target"
+name        = "_.target"
 doc         = [
 "When run on its own, will message 'default blah'.",
 "When run from inject::top, will messager 'hydrants'",
