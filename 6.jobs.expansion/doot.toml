@@ -63,28 +63,23 @@ action_exec   = {level="user",  colour="cyan"}
 [[locations]]
 
 [[tasks.example]]
-name         = "explicit"
-ctor         = "job"
-doc          = ["An explicit ctor'd job"]
-actions      = [
-{do="log", msg="Entering Job"},
-{do="dootle.jobs.queue:JobQueueAction",  args=["example::_.simple"]}
-]
-head-actions = [{do="log", msg="Head Action"}]
-cleanup      = [{do="log", msg="Cleaning up"}]
-
-[[tasks.example]]
-name         = "+.implicit"
-doc          = ["A job declared using +. as its name prefix"]
-actions      = [
-{do="log", msg="Entering Job"},
-{do="dootle.jobs.queue:JobQueueAction",  args=["example::_.simple"]}
-]
-head-actions = [{do="log", msg="Head Action"}]
-cleanup      = [{do="log", msg="Cleaning up"}]
-
-
-[[tasks.example]]
 name         = "_.simple"
 blah         = "hello"
 actions      = [{do="log", msg="SubTask. test {blah}"}]
+
+[[tasks.example]]
+name     = "+.expansion"
+doc      = ["A job with an expansion action",
+"Creates a new subtask for each value in 'data'",
+"Set count > 0 to limit the number of subtasks",
+]
+data          = ["a" ,"b", "c", "d"]
+inject_vals   = {insert=["blah"]}
+template      = "example::_.simple"
+count         = -1
+actions       = [
+{do="log", msg="Entering Job"},
+{do="dootle.jobs.expansion:JobExpandAction", from_="data", update_="subtasks", inject_="inject_vals", template_="template"},
+{do="dootle.jobs.limit:JobLimitAction", from_="subtasks"},
+{do="dootle.jobs.queue:JobQueueAction",  from_="subtasks"},
+]
