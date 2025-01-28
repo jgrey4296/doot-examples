@@ -1,6 +1,6 @@
 ## file.dep.tsk.toml -*- mode: toml-mode -*-
 # reminders:
-# action = [{do= "basic", args=[], inState=[], outState=[] }]
+# action = [{do= "basic", args=[]}]
 # cli    = [{name="", type="str", prefix="-", default="", desc="", positional=false}]
 
 doot_version = "0.13"
