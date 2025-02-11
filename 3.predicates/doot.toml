@@ -49,6 +49,7 @@ action_exec   = {level="user",  colour="cyan"}
 
 [[tasks.predicates]]
 name       = "top"
+doc        = ["Runs 2 tasks: yes, and no. yes passes a predicate, no fails it. "]
 depends-on = ["predicates::yes", "predicates::no"]
 
 [[tasks.predicates]]
