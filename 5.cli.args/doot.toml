@@ -53,5 +53,5 @@ name    = "cli.args"
 doc     = ["call with 'doot example::cli.args -arg {a string}'"]
 cli     = [{prefix="-", name="arg", type="str", default="blah"}]
 actions = [
-        {do="log", msg="The CLI Arg was: {arg}"}
+        {do="log", msg="The CLI Arg was: {arg} (default is 'blah')"}
 ]

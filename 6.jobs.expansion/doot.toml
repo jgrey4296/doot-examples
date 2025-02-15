@@ -71,7 +71,7 @@ actions      = [{do="log", msg="SubTask. test {blah}"}]
 name     = "+.expansion"
 doc      = ["A job with an expansion action",
 "Creates a new subtask for each value in 'data'",
-"Set count > 0 to limit the number of subtasks",
+"Set count > -1 to limit the number of subtasks",
 ]
 data          = ["a" ,"b", "c", "d"]
 inject_vals   = {insert=["blah"]}
