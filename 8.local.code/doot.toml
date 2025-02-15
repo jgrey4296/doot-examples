@@ -10,9 +10,6 @@ skip_default_plugins = false
 skip_plugin_search   = false
 empty_cmd            = "list"
 implicit_task_cmd    = "run"
-# default_task       = ""
-# constants_file     = ""
-# aliases_file       = ""
 
 [startup.plugins]
 # Allows for defining aliases
@@ -48,6 +45,18 @@ task          = {level="user",  colour="white"}
 action_exec   = {level="user",  colour="cyan"}
 
 [tasks]
+
+[[tasks.example]]
+name = "top"
+doc = [
+"The doot.toml dict startup.sources lets customize where tasks are loaded from,",
+"and where local code is loaded from.",
+"in this case, code is loaded from cwd."
+]
+depends-on = [
+"example::local.task",
+"example::local.action",
+]
 
 [[tasks.example]]
 name                 = "local.task"
