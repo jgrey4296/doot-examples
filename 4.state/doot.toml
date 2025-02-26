@@ -52,7 +52,7 @@ action_exec   = {level="user",  colour="cyan"}
 [[locations]]
 
 
-[[global.state]]
+[[global]]
 global_value = "bloo"
 
 [[tasks.state]]

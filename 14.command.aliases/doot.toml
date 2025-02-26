@@ -28,11 +28,11 @@ tracker     = "default"
 runner      = "default"
 reporter    = "default"
 report-line = []
-aliases = {basic=["basic::basic"]}
+aliases     = {basic=["basic::basic"]}
 
 [settings.commands.list]
 hide    = []
-# Alias { name=[args] }
+# Alias { name=[args] } -> doot name -> doot list args
 aliases = { tasks=[], acts=["--actions"], printers=["--loggers"] }
 
 [logging]

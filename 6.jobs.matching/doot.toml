@@ -73,12 +73,12 @@ actions     = [
 
 [[tasks.example]]
 name = "_.bib.task"
-actions = [{do="log", msg="A .bib file: {fpath}"}]
+actions = [{do="log", msg="A .bib task: {fpath}"}]
 
 [[tasks.example]]
 name = "_.txt.task"
-actions = [{do="log", msg="A .txt file: {fpath}"}]
+actions = [{do="log", msg="A .txt task: {fpath}"}]
 
 [[tasks.example]]
 name = "_.fallback.task"
-actions = [{do="log", msg="A misc file: {fpath}"}]
+actions = [{do="log", msg="A misc task: {fpath}"}]

@@ -40,7 +40,13 @@ target = "stdout"
 format = "{levelname:<8} : {message}"
 
 [logging.file]
-disabled = true
+level        = "trace"
+filter       = []
+target       = "rotate"
+format       = "{levelname:<8} : {message:<20} :|: ({module}.{lineno}.{funcName})"
+filename_fmt = "doot.log"
+disabled     = true
+
 [logging.printer]
 level        = "NOTSET"
 colour       = true
