@@ -1,0 +1,12 @@
+[project]
+name = "doot-examples"
+version = "0.1.0"
+description = "Add your description here"
+readme = "readme.md"
+requires-python = ">=3.12"
+dependencies = [
+    "doot",
+]
+
+[tool.uv.sources]
+doot = { workspace = true }
