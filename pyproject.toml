@@ -1,12 +1,19 @@
 [project]
-name = "doot-examples"
-version = "0.1.0"
-description = "Add your description here"
-readme = "readme.md"
+name            = "doot-examples"
+version         = "0.1.0"
+description     = "Add your description here"
+readme          = "readme.md"
 requires-python = ">=3.12"
-dependencies = [
+
+dependencies    = [
+    "bibble",
     "doot",
+    "dootle",
+    "jgdv",
 ]
 
 [tool.uv.sources]
-doot = { workspace = true }
+doot = { path = "../../", editable = true }
+dootle = { path = "../dootle", editable = true }
+jgdv = { path = "../../../../../../../../home/john/github/python/jgdv", editable = true }
+bibble = { path = "../bibble", editable = true }
