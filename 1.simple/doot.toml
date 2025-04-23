@@ -1,6 +1,6 @@
 # -*- mode:toml; -*-
 [startup]
-doot_version         = "0.13"
+doot_version         = "1.0"
 loaders              = { commands="default", task="default", parser="default" }
 location_check       = { make_missing=true, strict=true }
 sources              = { tasks=["."], code=[] }
@@ -55,7 +55,7 @@ format       = "{message}"
 filename_fmt = "doot_printed.log"
 
 [logging.subprinters]
-default       = {level="user"}
+default       = {level="NOTSET"}
 
 [[locations]]
 

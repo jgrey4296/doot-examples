@@ -3,7 +3,7 @@
 # action = [{do= "basic", args=[]}]
 # cli    = [{name="", type="str", prefix="-", default="", desc="", positional=false}]
 
-doot_version = "0.13"
+doot_version = "1.0"
 
 [[state]]     # Key=vals for all tasks
 
