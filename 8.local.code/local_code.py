@@ -25,25 +25,23 @@ from uuid import UUID, uuid1
 
 ##-- end builtin imports
 
-##-- logging
-logging = logmod.getLogger(__name__)
-##-- end logging
-
 import sys
 import os
 
 import doot
 import doot.errors
-from doot.task.core.task import DootTask
-from doot.structs import ActionSpec, DKeyed
+from doot.workflow import ActionSpec, DootTask
+from doot.util.dkey import DootKeyed as DKeyed
 
-printer = doot.subprinter()
-act_l   = doot.subprinter("action_exec")
-env     = os.environ
+##-- logging
+logging = logmod.getLogger(__name__)
+##-- end logging
+
+env = os.environ
 
 @DKeyed.redirects("update_")
 def simple(spec, state, _update):
-    act_l.user("Running simple external action")
+    logging.user("Running simple external action")
 
 class SimpleTaskExample(DootTask):
     """
@@ -64,7 +62,7 @@ class SimpleTaskExample(DootTask):
         yield self._extra_actions[1]
 
     def _head(self, spec, state):
-        act_l.user("A Big number: %s", 1_000_000)
+        logging.user("A Big number: %s", 1_000_000)
 
     def _tail(self, spec, state):
-        act_l.user("Another Big Number: %s", 50_234_235)
+        logging.user("Another Big Number: %s", 50_234_235)
