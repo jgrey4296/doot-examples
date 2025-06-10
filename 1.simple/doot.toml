@@ -1,18 +1,12 @@
 # -*- mode:toml; -*-
+
 [startup]
-doot_version         = "1.0"
+doot_version         = "1.1"
 loaders              = { commands="default", task="default", parser="default" }
-location_check       = { make_missing=true, strict=true }
 sources              = { tasks=["."], code=[] }
-sleep                = { task=0.2, subtask=1, batch=1 }
 max_steps            = 100_000
 skip_default_plugins = false
 skip_plugin_search   = false
-empty_cmd            = "list"
-implicit_task_cmd    = "run"
-# default_task       = ""
-# constants_file     = ""
-# aliases_file       = ""
 
 [startup.plugins]
 # Allows for defining aliases
@@ -23,6 +17,7 @@ notify           = { speak=false } # success_msg="", fail_msg=""
 defaulted_values = { write=false, path=".defaulted_values.toml" }
 
 [settings.commands]
+
 [settings.commands.run]
 tracker     = "default"
 runner      = "default"
@@ -33,6 +28,7 @@ report-line = []
 hide = []
 
 [logging] # Standard loggers. See LoggerSpec.
+
 [logging.stream]
 level  = "WARNING"
 filter = []
@@ -40,22 +36,19 @@ target = "stdout"
 format = "{levelname:<8} : {message}"
 
 [logging.file]
+disabled     = true
 level        = "trace"
 filter       = []
 target       = "rotate"
 format       = "{levelname:<8} : {message:<20} :|: ({module}.{lineno}.{funcName})"
 filename_fmt = "doot.log"
-disabled     = true
 
 [logging.printer]
-level        = "NOTSET"
+level        = "DEBUG"
 colour       = true
 target       = ["stdout"]
 format       = "{message}"
 filename_fmt = "doot_printed.log"
-
-[logging.subprinters]
-default       = {level="NOTSET"}
 
 [[locations]]
 
