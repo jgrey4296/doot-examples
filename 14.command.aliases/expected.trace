@@ -1,0 +1,27 @@
+Using Alias: simplealias -> ['list', '--help']
+----------------------------------------------
+-------------------  Doot  -------------------
+----------------------------------------------
+
+Command: listcmd<+m>
+
+A simple command to list all loaded task heads.
+Set settings.commands.list.hide with a list of regexs to ignore
+
+Params:
++dependencies    (bool)    : List task dependencies                                  : Defaults to: False
++docstr          (bool)    : A Base Parameter                                        : Defaults to: False
++internal        (bool)    : Include internal tasks (ie: prefixed with an underscore) : Defaults to: False
++params          (bool)    : A Base Parameter                                        : Defaults to: False
+-tasks           (bool)    : List all loaded tasks, by group                         : Defaults to: True
+--actions        (bool)    : List All Known Actions                                  : Defaults to: False
+--flags          (bool)    : List Task Meta                                          : Defaults to: False
+--group-by       How to group listed tasks                                           : Defaults to: "group"
+--locs           (bool)    : List all Loaded Locations                               : Defaults to: False
+--loggers        (bool)    : List All Print Points                                   : Defaults to: False
+--plugins        (bool)    : List All Known Plugins                                  : Defaults to: False
+pattern          Filter the listing to only values passing this regex                : Defaults to: ""
+----------------------------------------------
+-----------------  Success  ------------------
+
+------------------  Dooted  ------------------

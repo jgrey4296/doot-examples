@@ -8,26 +8,6 @@ skip_default_plugins  = false
 skip_plugin_search    = false
 empty_cmd             = ["run", "example::+.implicit"]
 
-[startup.plugins]
-# Allows for defining aliases
-command        = { tasks="doot.cmds.list_cmd:ListCmd"}
-
-[shutdown]
-notify           = { speak=false } # success_msg="", fail_msg=""
-defaulted_values = { write=false, path=".defaulted_values.toml" }
-
-[settings.commands]
-
-[settings.commands.run]
-tracker     = "default"
-runner      = "default"
-reporter    = "default"
-report-line = []
-
-[settings.commands.list]
-hide     = []
-aliases  = { tasks=[] }
-
 [logging]
 file = false
 
@@ -44,8 +24,6 @@ target       = ["stdout"]
 format       = "{message}"
 filename_fmt = "doot_printed.log"
 
-[logging.extra]
-
 [[locations]]
 
 [[tasks.example]]
@@ -55,13 +33,21 @@ actions      = [
     {do="log", msg="Entering Job"},
     {do="dootle.jobs.queue:JobQueueAction",  args=["example::_.simple", "example::_.simple", "example::_.simple"]},
     {do="log", msg="Queued Subtasks"},
+    {do="log", msg="----------------"},
 ]
-head-actions = [{do="log", msg="Head Action"}]
-cleanup      = [{do="log", msg="Cleaning up"}]
+head-actions = [
+    {do="log", msg="The Job's Head Action"},
+    {do="log", msg="----------------"},
+]
+cleanup      = [
+    {do="log", msg="Cleaning up"},
+    {do="log", msg="----------------"},
+]
 
 
 [[tasks.example]]
 name         = "_.simple"
 actions      = [
-    {do="log", msg="SubTask. {_task_name}"}
+    {do="log", msg="SubTask. {_task_name}"},
+    {do="log", msg="----------------"},
 ]

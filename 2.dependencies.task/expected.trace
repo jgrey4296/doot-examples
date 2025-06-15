@@ -1,4 +1,10 @@
+:   |   ::  []      : Task: task.dep::_.bottom[<uuid>]
 :   |   ::  []      : 1. The Bottom task, which doesn't depend on anything.
+:   |   ::  []      : --------------------------
+:   |   ::  []      : Task: task.dep::_.mid[<uuid>]
 :   |   ::  []      : 2. Middle task, which depends on the bottom.
-:   |   ::  []      : 3.a Setup task.dep::top
+:   |   ::  []      : --------------------------
+:   |   ::  []      : Task: task.dep::top[<uuid>]
+:   |   ::  []      : 3.a the Top Task's setup
 :   |   ::  []      : 3.b The Top Task, which depends on the middle.
+:   |   ::  []      : 3.c The Top Task's cleanup

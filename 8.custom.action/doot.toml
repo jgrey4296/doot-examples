@@ -2,8 +2,8 @@
 [startup]
 doot_version  = "1.1"
 loaders       = { commands="default", task="default", parser="default" }
-sources       = { tasks=[".tasks"], code=[] }
-empty_cmd     = ["run", "cli.args::top"]
+sources       = { tasks=[".tasks"], code=["."] }
+empty_cmd     = ["run", "example::action"]
 
 [logging]
 # Standard loggers. See jgdv.logging.LoggerSpec.
@@ -12,13 +12,12 @@ stream  = { level="user",   filter=[],             target="stdout", format="{lev
 file    = false
 printer = { level="WARNING", colour=true,           target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
 
-[[tasks."cli.args"]]
-name    = "top"
-doc     = ["call with 'doot example::cli.args -arg {a string}'"]
-cli     = [{name="-arg", type="str", default="blah"}]
-actions = [
-    {do="log", msg="This is a task that uses a cli arg"},
-    {do="log", msg="The CLI Arg was: {arg} (default is 'blah')"},
-    {do="log", msg="Change the arg by calling:"},
-    {do="log", msg="doot cli.args::top -arg 'some other value'"},
+[tasks]
+
+[[tasks.example]]
+name                 = "action"
+doc                  = ["An example of importing local code for an action"] 
+actions              = [
+   # By using a coderef (see jgdv) as the 'do' value, the reference is loaded and run                     
+   {do="fn::local_code:simple"},
 ]

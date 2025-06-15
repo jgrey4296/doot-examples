@@ -2,8 +2,8 @@
 [startup]
 doot_version  = "1.1"
 loaders       = { commands="default", task="default", parser="default" }
-sources       = { tasks=[".tasks"], code=[] }
-empty_cmd     = ["run", "cli.args::top"]
+sources       = { tasks=[".tasks"], code=["."] }
+empty_cmd     = ["run", "example::custom.task"]
 
 [logging]
 # Standard loggers. See jgdv.logging.LoggerSpec.
@@ -12,13 +12,16 @@ stream  = { level="user",   filter=[],             target="stdout", format="{lev
 file    = false
 printer = { level="WARNING", colour=true,           target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
 
-[[tasks."cli.args"]]
-name    = "top"
-doc     = ["call with 'doot example::cli.args -arg {a string}'"]
-cli     = [{name="-arg", type="str", default="blah"}]
-actions = [
-    {do="log", msg="This is a task that uses a cli arg"},
-    {do="log", msg="The CLI Arg was: {arg} (default is 'blah')"},
-    {do="log", msg="Change the arg by calling:"},
-    {do="log", msg="doot cli.args::top -arg 'some other value'"},
+[tasks]
+
+[[tasks.example]]
+name     = "custom.task"
+# By specifying the ctor (a jgdv coderef), that is loaded and used instead of a default doot task
+ctor     = "cls::local_code:SimpleTaskExample"  
+doc      = [
+   "A Task demonstrating a custom local task",
+   "that adds a head and tail automatically",
+] 
+actions  = [
+   {do="log", msg="An action specified in the doot.toml"}
 ]

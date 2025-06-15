@@ -1,29 +1,18 @@
 # -*- mode:toml; -*-
+# This demonstrates injecting values into dependencies.
+# Injections can occur in a number of ways:
+# 1: from spec, which uses values expanded from the task spec currently running
+# 2: from state, which uses values of the current task state.
+# 3: from target, which uses values from the target subtask, when it runs
+# 4: literal, which injects values as written
+
 [startup]
 doot_version  = "1.1"
 loaders       = { commands="default", task="default", parser="default" }
 sources       = { tasks=[".tasks"], code=[] }
 empty_cmd     = ["run", "inject::top"]
 
-[startup.plugins]
-# Allows for defining aliases
-command        = { tasks="doot.cmds.list_cmd:ListCmd"}
-
-[shutdown]
-notify           = { speak=false } # success_msg="", fail_msg=""
-defaulted_values = { write=false, path=".defaulted_values.toml" }
-
 [settings.commands]
-[settings.commands.run]
-tracker     = "default"
-runner      = "default"
-reporter    = "default"
-report-line = []
-
-[settings.commands.list]
-hide     = []
-aliases  = { tasks=[] }
-
 [logging]
 file = false
 [logging.stream]
@@ -48,15 +37,15 @@ blee         = "Immediate Expansion in inject::top"
 depends_on   = [
     {task="inject::_.target"},
     # # Source expansion:  blah -> expanded(blah)
-    {task="inject::_.target", inject={from_spec=["blah"], suffix="simple.list.injection"}},
+    {task="inject::_.target", inject={from_spec=["blah"]}},
     # # Source remapping:  blah -> expanded(bloo)
-    {task="inject::_.target", inject={from_spec={blah="{bloo}"}, suffix="dict.map.injection"}},
+    {task="inject::_.target", inject={from_spec={blah="{bloo}"}}},
     # # Target remapping:  blah -> l1(bloo_) -> aweg -> expanded(aweg, source=inject::_.target)
-    {task="inject::_.target", inject={from_target={blah="{bloo}"}, suffix="direct.delayed"}},
+    {task="inject::_.target", inject={from_target={blah="{bloo}"}}},
     # # Literal insertion: blah -> 'a direct insertion'
-    {task="inject::_.target", inject={literal={blah="literal insertion"}, suffix="insertion"}},
+    {task="inject::_.target", inject={literal={blah="literal insertion"}}},
     # # Literal insertion with keys: blah -> 'literal with key: {other}' -
-    {task="inject::_.target", inject={literal={blah="literal with key: {other}"}, suffix="insertion"}},
+    {task="inject::_.target", inject={literal={blah="literal with key: {other}"}}},
 ]
 
 [[tasks.inject]]
@@ -71,5 +60,6 @@ other    = "other"
 info     = "A default info message"
 actions  = [
     # Log action format: {do="log", msg="{info}"},
-    {do="log", msg="The Value of blah is: {blah}"}
+    {do="log", msg="The Value of blah is: {blah}"},
+    {do="log", msg="--------------------------"},
 ]

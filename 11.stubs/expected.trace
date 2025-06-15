@@ -1,0 +1,18 @@
+[[tasks.test]]
+name                 = "task.stub"
+version              = "0.1"               
+doc                  = []                  
+ctor                 = "::doot.workflow:DootTask"
+depends_on           = []                  
+required_for         = []                  
+sources              = []                  
+setup                = []                  
+cleanup              = []                  
+on_fail              = []                  
+priority             = 10                  
+meta                 = []                  
+generated_names      = []                  
+queue_behaviour      = "default"           
+flags                = "Undefined"         
+doot_version         = "1.1.1"             
+actions              = []

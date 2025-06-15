@@ -1,41 +1,23 @@
 # -*- mode:toml; -*-
 [startup]
-doot_version          = "1.1"
-loaders               = { commands="default", task="default", parser="default" }
-sources               = { tasks=[".tasks"], code=[] }
-skip_default_plugins  = false
-skip_plugin_search    = false
-empty_cmd             = ["list"]
-implicit_task_cmd     = ["run"]
+doot_version  = "1.1"
+loaders       = { commands="default", task="default", parser="default" }
+sources       = { tasks=[".tasks"], code=[] }
+empty_cmd     = ["simplealias"]
 
 [startup.plugins]
 # Allows for defining aliases
-command        = { }
-
-[shutdown]
-notify           = { speak=false } # success_msg="", fail_msg=""
-defaulted_values = { write=false, path=".defaulted_values.toml" }
+command        = {}
 
 [settings.commands]
-[settings.commands.run]
-tracker     = "default"
-runner      = "default"
-reporter    = "default"
-aliases     = {basic=["basic::basic"]}
-
 [settings.commands.list]
 hide    = []
 # Alias { name=[args] } -> doot name -> doot list args
-aliases = { tasks=[], acts=["--actions"], printers=["--loggers"] }
+aliases = { simplealias=["--help"] }
 
 [logging]
 # Standard loggers. See jgdv.logging.LoggerSpec.
 # Additional Level aliases: detail=debug, trace=info, user=warning
-stream  = { level="user",   filter=[],             target="stdout", format="{levelname:<8} : {message}"  }
+stream  = { level="user",   filter=[],   target="stdout", format="{levelname:<8} : {message}"  }
 file    = false
-printer = { level="NOTSET", colour=true,           target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
-
-
-[[tasks.basic]]
-name = "basic"
-actions = [{do="log", msg="Look at the settings.commands sections"}]
+printer = { level="NOTSET", colour=true, target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
