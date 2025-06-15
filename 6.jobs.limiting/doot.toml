@@ -57,9 +57,9 @@ doc   = ["A job with an expansion action",
 data         = ["a" ,"b", "c", "d"]
 inject_vals  = {literal=["blah"]}
 template     = "example::_.simple"
-count        = -1
+count        = 2
 actions      = [
-    {do="log", msg="Entering Job"},
+    {do="log", msg="Entering Job. There are 4 data values, but only 2 subtasks will be generated."},
     # Expand the {template} using the injection {inject_vals}, applying literal values {data}
     {do="dootle.jobs.expansion:JobExpandAction", from_="data", update_="subtasks", inject_="inject_vals", template_="template"},
     {do="dootle.jobs.limit:JobLimitAction", from_="subtasks"},

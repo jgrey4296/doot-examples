@@ -1,0 +1,17 @@
+:   |   ::  []      : Generating Matched Subtask
+:   |   ::  []      : --------------------------
+:   |   ::  []      : A subtask: example::+.matcher..matched.5..<+>[<uuid>]
+:   |   ::  []      : A misc task: blah.bloo
+:   |   ::  []      : --------------------------
+:   |   ::  []      : A subtask: example::+.matcher..matched.4..<+>[<uuid>]
+:   |   ::  []      : A misc task: d.py
+:   |   ::  []      : --------------------------
+:   |   ::  []      : A subtask: example::+.matcher..matched.3..<+>[<uuid>]
+:   |   ::  []      : A .bib task: c.bib
+:   |   ::  []      : --------------------------
+:   |   ::  []      : A subtask: example::+.matcher..matched.2..<+>[<uuid>]
+:   |   ::  []      : A .txt task: b.txt
+:   |   ::  []      : --------------------------
+:   |   ::  []      : A subtask: example::+.matcher..matched.1..<+>[<uuid>]
+:   |   ::  []      : A .bib task: a.bib
+:   |   ::  []      : --------------------------

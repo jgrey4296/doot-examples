@@ -1,10 +1,11 @@
 # -*- mode:toml; -*-
 [startup]
-doot_version         = "1.1"
-loaders              = { commands="default", task="default", parser="default" }
-sources              = { tasks=[".tasks"], code=[] }
-skip_default_plugins = false
-skip_plugin_search   = false
+doot_version          = "1.1"
+loaders               = { commands="default", task="default", parser="default" }
+sources               = { tasks=[".tasks"], code=[] }
+skip_default_plugins  = false
+skip_plugin_search    = false
+empty_cmd             = ["run", "example::+.matcher"]
 
 [startup.plugins]
 # Allows for defining aliases
@@ -35,7 +36,7 @@ target  = "stdout"
 format  ="{levelname:<8}  : {message}"
 
 [logging.printer]
-level         = "NOTSET"
+level         = "WARNING"
 colour        = true
 target        = ["stdout"]
 format        = "{message}"
@@ -47,23 +48,39 @@ filename_fmt  = "doot_printed.log"
 name        = "+.matcher"
 doc         = ["uses the match action to assign data to different subtasks"]
 data        = ["a.bib", "b.txt", "c.bib", "d.py", "blah.bloo"]
-matrix      = {".bib"="example::_.bib.task", ".txt"="example::_.txt.task", "_"="example::_.fallback.task"}
-inject_vals = {insert=["fpath"]}
-template    = "example::_.fallback.task"
+inject_vals = {literal=["fpath"]}
 actions     = [
-    {do="dootle.jobs.expansion:JobExpandAction", from_="data", update_="subtasks", inject_="inject_vals", template_="template"},
-    {do="dootle.jobs.expansion:JobMatchAction", mapping_="matrix", onto_="subtasks"},
+    {do="log", msg="Generating Matched Subtask"},
+    {do="dootle.jobs.expansion:MatchExpansionAction", mapping_="matrix", update_="subtasks", from_="data", inject_="inject_vals"},
     {do="dootle.jobs.queue:JobQueueAction",  from_="subtasks"},
+    {do="log", msg="--------------------------"},
 ]
+[tasks.example.matrix]
+# The mapping from data suffix -> subtask name
+".bib"  = "example::_.bib.task"
+".txt"  = "example::_.txt.task"
+"_"     = "example::_.fallback.task"
 
 [[tasks.example]]
 name = "_.bib.task"
-actions = [{do="log", msg="A .bib task: {fpath}"}]
+actions = [
+    {do="log", msg="A subtask: {_task_name}"},
+    {do="log", msg="A .bib task: {fpath}"},
+    {do="log", msg="--------------------------"},
+]
 
 [[tasks.example]]
 name = "_.txt.task"
-actions = [{do="log", msg="A .txt task: {fpath}"}]
+actions = [
+    {do="log", msg="A subtask: {_task_name}"},
+    {do="log", msg="A .txt task: {fpath}"},
+    {do="log", msg="--------------------------"},
+]
 
 [[tasks.example]]
 name = "_.fallback.task"
-actions = [{do="log", msg="A misc task: {fpath}"}]
+actions = [
+    {do="log", msg="A subtask: {_task_name}"},
+    {do="log", msg="A misc task: {fpath}"},
+    {do="log", msg="--------------------------"},
+]
