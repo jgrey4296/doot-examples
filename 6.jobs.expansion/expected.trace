@@ -1,0 +1,5 @@
+:   |   ::  []      : Entering Job
+:   |   ::  []      : SubTask. example::_.simple..4..<+>[<uuid>] expansion value: blah = d
+:   |   ::  []      : SubTask. example::_.simple..3..<+>[<uuid>] expansion value: blah = c
+:   |   ::  []      : SubTask. example::_.simple..2..<+>[<uuid>] expansion value: blah = b
+:   |   ::  []      : SubTask. example::_.simple..1..<+>[<uuid>] expansion value: blah = a

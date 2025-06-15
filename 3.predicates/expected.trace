@@ -1,0 +1,8 @@
+:   |   ::  []      : ----------------
+:   |   ::  []      : Success Example:
+:   |   ::  []      : Task will run because doot.toml exists. 'predicate success' should be logged:
+:   |   ::  []      : Predicate success
+:   |   ::  []      : ----------------
+:   |   ::  []      : Failure Example:
+:   |   ::  []      : Will Skip because not.toml does not exist. 'predicate failure' should *not* be logged:
+:   |   ::  []      : ----------------

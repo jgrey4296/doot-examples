@@ -1,10 +1,9 @@
 # -*- mode:toml; -*-
 [startup]
-doot_version         = "1.1"
-loaders              = { commands="default", task="default", parser="default" }
-sources              = { tasks=["."], code=[] }
-skip_default_plugins = false
-skip_plugin_search   = false
+doot_version  = "1.1"
+loaders       = { commands="default", task="default", parser="default" }
+sources       = { tasks=["."], code=[] }
+empty_cmd     = ["run", "predicates::top"]
 
 [startup.plugins]
 # Allows for defining aliases
@@ -28,29 +27,37 @@ hide = []
 # Standard loggers. See LoggerSpec.
 stream  = { level="WARNING", filter=[],             target="stdout",   format="{levelname:<7} : {message}"  }
 file    = false
-printer = { level="INFO", colour=true,            target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
+printer = { level="WARNING", colour=true,            target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
 
 [[locations]]
 
 [[tasks.predicates]]
 name        = "top"
 doc         = ["Runs 2 tasks: yes, and no. yes passes a predicate, no fails it. "]
-depends-on  = ["predicates::yes", "predicates::no"]
+depends-on  = ["predicates::_.yes", "predicates::_.no"]
+
 
 [[tasks.predicates]]
-name        = "yes"
+name        = "_.yes"
 f_target    = "doot.toml"
 depends-on  = [
-    {do="log", msg="Task will run because {f_target} exists. 'predicate success' should be logged."},
+    {do="log", msg="----------------"},
+    {do="log", msg="Success Example:"},
+    {do="log", msg="Task will run because {f_target} exists. 'predicate success' should be logged:"},
+    # The predicate:
     {do="exists?", args=["{f_target}"]}
 ]
 actions    = [ {do="log", msg="Predicate success" } ]
 
 [[tasks.predicates]]
-name        = "no"
+name        = "_.no"
 f_target    = "not.toml"
 depends-on  = [
-    {do="log", msg="Will Skip because {f_target} does not exist. 'predicate failure' should *not* be logged."},
+    {do="log", msg="----------------"},
+    {do="log", msg="Failure Example:"},
+    {do="log", msg="Will Skip because {f_target} does not exist. 'predicate failure' should *not* be logged:"},
+    # The Predicate:
     {do="exists?", args=["{f_target}"]}
 ]
-actions    = [ {do="log", msg="Predicate failure"} ]
+actions  = [ {do="log", msg="Predicate failure"} ]
+cleanup  = [ {do="log", msg="----------------"}  ]

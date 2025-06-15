@@ -1,0 +1,4 @@
+:   |   ::  []      : 1. The Bottom task, which doesn't depend on anything.
+:   |   ::  []      : 2. Middle task, which depends on the bottom.
+:   |   ::  []      : 3.a Setup task.dep::top
+:   |   ::  []      : 3.b The Top Task, which depends on the middle.
