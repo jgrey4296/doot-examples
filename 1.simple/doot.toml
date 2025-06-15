@@ -1,58 +1,49 @@
 # -*- mode:toml; -*-
+# This is the simplest doot toml 
+# When 'doot' is called, it runs the startup.empty_cmd 
 
-[startup]
+[startup] # Where startup values are set for doot
+# The Version of doot this file works with:
 doot_version  = "1.1"
+# The loaders to use for startup:
 loaders       = { commands="default", task="default", parser="default" }
+# Source directories for searching for tasks and python code
 sources       = { tasks=["."], code=[] }
+# The empty command run when just 'doot' is called from the command line
 empty_cmd     = ["run", "simple::msg"]
 
-[startup.plugins]
-# Allows for defining aliases
-command        = { tasks="doot.cmds.list_cmd:ListCmd" }
-
-[shutdown]
-notify           = { speak=false } # success_msg="", fail_msg=""
-defaulted_values = { write=false, path=".defaulted_values.toml" }
-
-[settings.commands]
-
-[settings.commands.run]
-tracker     = "default"
-runner      = "default"
-reporter    = "default"
-report-line = []
-
-[settings.commands.list]
-hide = []
-
-[logging] # Standard loggers. See LoggerSpec.
-
+[logging] 
+# The logging table controls logging to files and streams,
+# and the user level output (the printer)
+# -
+# By setting file to false, no logging is saved as a file
+file = false
 [logging.stream]
+# Don't log anything below this level:
 level  = "WARNING"
-filter = []
-target = "stdout"
+# Log to this location
+target = ["stderr"]
+# When logging, use this format:
 format = "{levelname:<8} : {message}"
 
-[logging.file]
-disabled     = true
-level        = "trace"
-filter       = []
-target       = "rotate"
-format       = "{levelname:<8} : {message:<20} :|: ({module}.{lineno}.{funcName})"
-filename_fmt = "doot.log"
-
 [logging.printer]
+# This is user level output
+# Lower the level to see more details
 level        = "WARNING"
+# Whether to output with colour or not
 colour       = true
+# Where to output to
 target       = ["stdout"]
 format       = "{message}"
-filename_fmt = "doot_printed.log"
-
-[[locations]]
 
 [[tasks.simple]]
+# This is the simplest task.
+# It's full name is 'simple::msg'
+# run 'doot simple::msg --help' to get information about it
 name     = "msg"
 doc      = ["the simplest task"]
 actions  = [
-        {do="log", msg="A Simple Message"},
+    # A Single action, printing a straightforward message.
+    # Messages are, by default, at level 'WARNING'
+    {do="log", msg="A Simple Message"},
 ]
