@@ -6,14 +6,11 @@ readme          = "readme.md"
 requires-python = ">=3.12"
 
 dependencies    = [
-    "bibble",
+    "bibtex-bibble",
     "doot",
     "dootle",
-    "jgdv",
 ]
 
 [tool.uv.sources]
-doot = { path = "../../", editable = true }
-dootle = { path = "../dootle", editable = true }
-jgdv = { path = "../../../../../../../../home/john/github/python/jgdv", editable = true }
-bibble = { path = "../bibble", editable = true }
+bibtex-bibble = { path = "../bibble", editable = true }
+
