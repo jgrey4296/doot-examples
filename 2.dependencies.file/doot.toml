@@ -23,7 +23,7 @@ report-line  = []
 
 [logging]
 # Standard loggers. See LoggerSpec.
-stream  = { level="WARN", filter=[],  target="stdout",   format="{levelname:<8} : {message}"  }
+stream  = { level="WARNING", filter=[],  target="stdout",   format="{levelname:<8} : {message}"  }
 file    = true
 printer = { level="WARNING", colour=true, target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
 

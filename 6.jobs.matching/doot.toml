@@ -30,8 +30,8 @@ data        = ["a.bib", "b.txt", "c.bib", "d.py", "blah.bloo"]
 inject_vals = {literal=["fpath"]}
 actions     = [
     {do="log", msg="Generating Matched Subtasks"},
-    {do="dootle.jobs.expansion:MatchExpansionAction", mapping_="matrix", update_="subtasks", from_="data", inject_="inject_vals"},
-    {do="dootle.jobs.queue:JobQueueAction",  from_="subtasks"},
+    {do="dootle.jobs.expand:MatchExpansionAction", mapping_="matrix", update_="subtasks", from_="data", inject_="inject_vals"},
+    {do="dootle.jobs.expand:JobQueueAction",  from_="subtasks"},
     {do="log", msg="--------------------------"},
 ]
 

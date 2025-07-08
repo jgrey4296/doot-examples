@@ -39,4 +39,4 @@ logging = logmod.getLogger(__name__)
 
 @DKeyed.redirects("update_")
 def simple(spec, state, _update) -> None:
-    doot.report.act(info="", msg="This is a simple custom action", level=logmod.WARNING)
+    doot.report.wf.act(info="", msg="This is a simple custom action", level=logmod.WARNING)

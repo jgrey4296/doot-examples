@@ -36,8 +36,8 @@ template     = "example::_.simple"
 actions      = [
     {do="log", msg="Entering Job"},
     # Expand the {template} using the injection {inject_vals}, applying literal values {data}
-    {do="dootle.jobs.expansion:JobExpandAction", from_="data", update_="subtasks", inject_="inject_vals", template_="template"},
-    {do="dootle.jobs.queue:JobQueueAction",  from_="subtasks"},
+    {do="dootle.jobs.expand:JobExpandAction", from_="data", update_="subtasks", inject_="inject_vals", template_="template"},
+    {do="dootle.jobs.expand:JobQueueAction",  from_="subtasks"},
     {do="log", msg="Subtasks Queued"},
     {do="log", msg="--------------------------"},
 ]

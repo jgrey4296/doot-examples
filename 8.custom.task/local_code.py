@@ -54,13 +54,13 @@ class SimpleTaskExample(DootTask):
         yield spec actions, plus a head and tail
         """
         yield self._extra_actions[0]
-        doot.report.act(info="", msg="----------", level=logmod.WARNING)
+        doot.report.wf.act(info="", msg="----------", level=logmod.WARNING)
         yield from iter(self.spec.actions)
-        doot.report.act(info="", msg="----------", level=logmod.WARNING)
+        doot.report.wf.act(info="", msg="----------", level=logmod.WARNING)
         yield self._extra_actions[1]
 
     def _head(self, spec, state):
-        doot.report.act(info="head", msg="A Big number: %s" % 1_000_000, level=logmod.WARNING)
+        doot.report.wf.act(info="head", msg="A Big number: %s" % 1_000_000, level=logmod.WARNING)
 
     def _tail(self, spec, state):
-        doot.report.act(info="tail", msg="Another Big Number: %s" % 50_234_235, level=logmod.WARNING)
+        doot.report.wf.act(info="tail", msg="Another Big Number: %s" % 50_234_235, level=logmod.WARNING)

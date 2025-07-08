@@ -31,7 +31,7 @@ name         = "+.implicit"
 doc          = ["A job declared using +. as its name prefix"]
 actions      = [
     {do="log", msg="Entering Job"},
-    {do="dootle.jobs.queue:JobQueueAction",  args=["example::_.simple", "example::_.simple", "example::_.simple"]},
+    {do="dootle.jobs.expand:JobQueueAction",  args=["example::_.simple", "example::_.simple", "example::_.simple"]},
     {do="log", msg="Queued Subtasks"},
     {do="log", msg="----------------"},
 ]

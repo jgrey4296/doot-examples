@@ -16,8 +16,8 @@ empty_cmd     = ["run", "inject::top"]
 [logging]
 file = false
 [logging.stream]
-level = "user"
-filter = []
+level = "WARNING"
+filter = ["jgdv"]
 target = "stdout"
 format="{levelname:<8} : {message}"
 

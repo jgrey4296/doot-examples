@@ -11,6 +11,8 @@ loaders       = { commands="default", task="default", parser="default" }
 sources       = { tasks=["."], code=[] }
 # The empty command run when just 'doot' is called from the command line
 empty_cmd     = ["run", "simple::msg"]
+# when the cmd is skipped, going straight to the subcmd
+implicit_cmd  = ["run"]
 
 [logging] 
 # The logging table controls logging to files and streams,

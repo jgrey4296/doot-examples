@@ -15,10 +15,10 @@ printer = { level="WARNING", colour=true,           target=["stdout"], format="{
 [[tasks."cli.args"]]
 name    = "top"
 doc     = ["call with 'doot example::cli.args -arg {a string}'"]
-cli     = [{name="-arg", type="str", default="blah"}]
+cli     = [{name="-custom", type="str", default="blah"}]
 actions = [
     {do="log", msg="This is a task that uses a cli arg"},
-    {do="log", msg="The CLI Arg was: {arg} (default is 'blah')"},
+    {do="log", msg="The CLI Arg was: {custom} (default is 'blah')"},
     {do="log", msg="Change the arg by calling:"},
-    {do="log", msg="doot cli.args::top -arg 'some other value'"},
+    {do="log", msg="doot cli.args::top -custom 'some other value'"},
 ]
