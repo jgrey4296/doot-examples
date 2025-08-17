@@ -1,17 +1,18 @@
 :   |   ::  []      : Generating Matched Subtasks
 :   |   ::  []      : --------------------------
 :   |   ::  []      : A subtask: mapped::_.fallback.task..matched.5..<+>[<uuid>]
-:   |   ::  []      : A misc task: blah.bloo
+:   |   ::  []      : A misc task for: blah.bloo
 :   |   ::  []      : --------------------------
 :   |   ::  []      : A subtask: mapped::_.fallback.task..matched.4..<+>[<uuid>]
-:   |   ::  []      : A misc task: d.py
+:   |   ::  []      : A misc task for: d.py
 :   |   ::  []      : --------------------------
 :   |   ::  []      : A subtask: mapped::_.bib.task..matched.3..<+>[<uuid>]
-:   |   ::  []      : A .bib task: c.bib
+:   |   ::  []      : A .bib task for: c.bib
 :   |   ::  []      : --------------------------
 :   |   ::  []      : A subtask: mapped::_.txt.task..matched.2..<+>[<uuid>]
-:   |   ::  []      : A .txt task: b.txt
+:   |   ::  []      : A .txt task for: b.txt
 :   |   ::  []      : --------------------------
 :   |   ::  []      : A subtask: mapped::_.bib.task..matched.1..<+>[<uuid>]
-:   |   ::  []      : A .bib task: a.bib
+:   |   ::  []      : A .bib task for: a.bib
 :   |   ::  []      : --------------------------
+:   |   ::  []      : Job Head

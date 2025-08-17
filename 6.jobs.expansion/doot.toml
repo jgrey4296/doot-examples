@@ -10,7 +10,7 @@ empty_cmd             = ["run", "example::+.expansion"]
 file = false
 
 [logging.stream]
-level   = "user"
+level   = "WARNING"
 filter  = []
 target  = "stdout"
 format  ="{levelname:<8}  : {message}"
@@ -21,6 +21,9 @@ colour       = true
 target       = ["stdout"]
 format       = "{message}"
 filename_fmt = "doot_printed.log"
+
+[logging.extra]
+jgdv = false
 
 [[locations]]
 
@@ -41,6 +44,8 @@ actions      = [
     {do="log", msg="Subtasks Queued"},
     {do="log", msg="--------------------------"},
 ]
+head-actions  = [{do="log", msg="Job Head"},]
+cleanup       = [{do="log", msg="Job Cleanup"},]
 
 [[tasks.example]]
 name     = "_.simple"

@@ -7,18 +7,15 @@ empty_cmd     = ["simplealias"]
 implicit_cmd  = []
 
 [startup.plugins]
-# Allows for defining aliases
 command        = {}
 
 [settings.commands]
 [settings.commands.list]
-hide    = []
 # Alias { name=[args] } -> doot name -> doot list args
+hide    = []
 aliases = { simplealias=["--help"] }
 
 [logging]
-# Standard loggers. See jgdv.logging.LoggerSpec.
-# Additional Level aliases: detail=debug, trace=info, user=warning
 stream  = { level="user",   filter=[],   target="stdout", format="{levelname:<8} : {message}"  }
 file    = false
 printer = { level="NOTSET", colour=true, target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }

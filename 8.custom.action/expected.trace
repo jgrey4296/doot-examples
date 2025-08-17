@@ -1,1 +1,6 @@
 :   |   ::  []      : This is a simple custom action
+:   |   ::  []      : --------
+:   |   ::  []      : This is a custom action with args:
+:   |   ::  []      : Arg 0: blah
+:   |   ::  []      : Arg 1: bloo
+:   |   ::  []      : Arg 2: blee

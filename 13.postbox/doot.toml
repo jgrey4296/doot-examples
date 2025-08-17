@@ -9,6 +9,7 @@ empty_cmd = ["run"]
 
 [logging]
 file = false
+extra.jgdv = false
 
 [logging.stream]
 disabled  = false 
@@ -27,11 +28,11 @@ format        = "{message}"
 filename_fmt  = "doot_printed.log"
 
 [[locations]]
-# Locations as structured strings. See jgdv.structs.locator
-src     = "src"
-codegen = "clean::{src}/_codegen"
-temp    = "clean::.temp"
-logs    = "{temp}/logs"
-build   = "{temp}/build"
-docs    = "docs"
-data    = "data"
+
+[[tasks.example]]
+name     = "postbox"
+actions  = [
+# Put stuff in the postbox
+# Get it out
+# print it
+]

@@ -11,6 +11,7 @@ empty_cmd     = ["run", "example::custom.task"]
 stream  = { level="user",   filter=[],             target="stdout", format="{levelname:<8} : {message}"  }
 file    = false
 printer = { level="WARNING", colour=true,           target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
+extra.jgdv = false
 
 [tasks]
 
@@ -24,4 +25,7 @@ doc      = [
 ] 
 actions  = [
    {do="log", msg="An action specified in the doot.toml"}
+]
+cleanup = [
+   {do="log", msg="Cleanup"},
 ]

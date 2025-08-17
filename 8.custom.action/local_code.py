@@ -36,7 +36,14 @@ from doot.util.dkey import DootKeyed as DKeyed
 logging = logmod.getLogger(__name__)
 ##-- end logging
 
-
+@DKeyed.args
 @DKeyed.redirects("update_")
-def simple(spec, state, _update) -> None:
+def simple(spec, state, _args, _update) -> None:
     doot.report.wf.act(info="", msg="This is a simple custom action", level=logmod.WARNING)
+
+@DKeyed.args
+@DKeyed.redirects("update_")
+def with_args(spec, state, _args, _update) -> None:
+    doot.report.wf.act(info="", msg="This is a custom action with args:", level=logmod.WARNING)
+    for i,arg in enumerate(_args):
+        doot.report.wf.act(info="", msg=f"Arg {i}: {arg}", level=logmod.WARNING)

@@ -12,7 +12,7 @@ empty_cmd             = ["run", "example::+.implicit"]
 file = false
 
 [logging.stream]
-level   = "user"
+level   = "WARNING"
 filter  = []
 target  = "stdout"
 format  ="{levelname:<8}  : {message}"
@@ -24,19 +24,22 @@ target       = ["stdout"]
 format       = "{message}"
 filename_fmt = "doot_printed.log"
 
+[logging.extra]
+jgdv = false
+
 [[locations]]
 
 [[tasks.example]]
 name         = "+.implicit"
 doc          = ["A job declared using +. as its name prefix"]
 actions      = [
-    {do="log", msg="Entering Job"},
-    {do="dootle.jobs.expand:JobQueueAction",  args=["example::_.simple", "example::_.simple", "example::_.simple"]},
+    {do="log", msg="Entering Job. Queuing 1 new Task."},
+    {do="dootle.jobs.expand:JobQueueAction",  args=["example::_.simple"]},
     {do="log", msg="Queued Subtasks"},
     {do="log", msg="----------------"},
 ]
 head-actions = [
-    {do="log", msg="The Job's Head Action"},
+    {do="log", msg="Job Head"},
     {do="log", msg="----------------"},
 ]
 cleanup      = [

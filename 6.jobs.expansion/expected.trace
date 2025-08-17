@@ -1,15 +1,17 @@
 :   |   ::  []      : Entering Job
 :   |   ::  []      : Subtasks Queued
 :   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..4..<+>[<uuid>]
+:   |   ::  []      : SubTask. example::+.expansion..subtasks..4[<uuid>]
 :   |   ::  []      : Expansion value: blah = d
 :   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..3..<+>[<uuid>]
+:   |   ::  []      : SubTask. example::+.expansion..subtasks..3[<uuid>]
 :   |   ::  []      : Expansion value: blah = c
 :   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..2..<+>[<uuid>]
+:   |   ::  []      : SubTask. example::+.expansion..subtasks..2[<uuid>]
 :   |   ::  []      : Expansion value: blah = b
 :   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..1..<+>[<uuid>]
+:   |   ::  []      : SubTask. example::+.expansion..subtasks..1[<uuid>]
 :   |   ::  []      : Expansion value: blah = a
 :   |   ::  []      : --------------------------
+:   |   ::  []      : Job Head
+:   |   ::  []      : Job Cleanup

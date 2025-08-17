@@ -34,6 +34,7 @@ actions     = [
     {do="dootle.jobs.expand:JobQueueAction",  from_="subtasks"},
     {do="log", msg="--------------------------"},
 ]
+head-actions = [{do="log", msg="Job Head"}]
 
 [tasks.example.matrix]
 # The mapping from data suffix -> subtask name
@@ -45,7 +46,7 @@ actions     = [
 name = "_.bib.task"
 actions = [
     {do="log", msg="A subtask: {_task_name}"},
-    {do="log", msg="A .bib task: {fpath}"},
+    {do="log", msg="A .bib task for: {fpath}"},
     {do="log", msg="--------------------------"},
 ]
 
@@ -53,7 +54,7 @@ actions = [
 name = "_.txt.task"
 actions = [
     {do="log", msg="A subtask: {_task_name}"},
-    {do="log", msg="A .txt task: {fpath}"},
+    {do="log", msg="A .txt task for : {fpath}"},
     {do="log", msg="--------------------------"},
 ]
 
@@ -61,6 +62,6 @@ actions = [
 name = "_.fallback.task"
 actions = [
     {do="log", msg="A subtask: {_task_name}"},
-    {do="log", msg="A misc task: {fpath}"},
+    {do="log", msg="A misc task for: {fpath}"},
     {do="log", msg="--------------------------"},
 ]

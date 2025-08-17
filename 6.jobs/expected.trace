@@ -1,13 +1,9 @@
-:   |   ::  []      : Entering Job
+:   |   ::  []      : Entering Job. Queuing 1 new Task.
 :   |   ::  []      : Queued Subtasks
 :   |   ::  []      : ----------------
-:   |   ::  []      : SubTask. example::_.simple..0[<uuid>]
+:   |   ::  []      : SubTask. example::_.simple[<uuid>]
 :   |   ::  []      : ----------------
-:   |   ::  []      : SubTask. example::_.simple..1[<uuid>]
-:   |   ::  []      : ----------------
-:   |   ::  []      : SubTask. example::_.simple..2[<uuid>]
-:   |   ::  []      : ----------------
-:   |   ::  []      : The Job's Head Action
+:   |   ::  []      : Job Head
 :   |   ::  []      : ----------------
 :   |   ::  []      : Cleaning up
 :   |   ::  []      : ----------------

@@ -1,5 +1,7 @@
-:   |   ::  [head]  : A Big number: 1000000
+:   |   ::  [Custom] : Start
+:   |   ::  [head]  : SimpleTaskExample's implicit Head action
 :   |   ::  []      : ----------
 :   |   ::  []      : An action specified in the doot.toml
 :   |   ::  []      : ----------
-:   |   ::  [tail]  : Another Big Number: 50234235
+:   |   ::  [head]  : SimpleTaskExample's implicit Tail
+:   |   ::  [Custom] : End

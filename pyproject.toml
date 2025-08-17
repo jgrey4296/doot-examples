@@ -13,4 +13,6 @@ dependencies    = [
 
 [tool.uv.sources]
 bibtex-bibble = { path = "../bibble", editable = true }
+doot = { path = "../../", editable = true }
+dootle = { path = "../dootle", editable = true }
 

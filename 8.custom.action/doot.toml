@@ -8,9 +8,10 @@ empty_cmd     = ["run", "example::action"]
 [logging]
 # Standard loggers. See jgdv.logging.LoggerSpec.
 # Additional Level aliases: detail=debug, trace=info, user=warning
-stream  = { level="user",   filter=[],             target="stdout", format="{levelname:<8} : {message}"  }
+stream  = { level="WARNING",   filter=[],             target="stdout", format="{levelname:<8} : {message}"  }
 file    = false
 printer = { level="WARNING", colour=true,           target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }
+extra.jgdv = false
 
 [tasks]
 
@@ -18,6 +19,8 @@ printer = { level="WARNING", colour=true,           target=["stdout"], format="{
 name                 = "action"
 doc                  = ["An example of importing local code for an action"] 
 actions              = [
-   # By using a coderef (see jgdv) as the 'do' value, the reference is loaded and run                     
+   # By using a coderef (see jgdv) as the 'do' value, the reference is loaded and run
    {do="fn::local_code:simple"},
+   {do="log", msg="--------"},
+   {do="fn::local_code:with_args", args=["blah", "bloo", "blee"]},
 ]

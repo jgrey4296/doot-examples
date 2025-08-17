@@ -7,8 +7,6 @@ loaders       = { commands="default", task="default", parser="default" }
 sources       = { tasks=[".tasks"], code=[] }
 empty_cmd     = ["stub", "test::task.stub"]
 
-# Setup output stream, file logging, and printing
-# See jgdv.logging for details
 [logging]
 file = false
 
