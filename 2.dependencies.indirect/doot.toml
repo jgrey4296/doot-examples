@@ -1,0 +1,47 @@
+# -*- mode:toml; -*-
+# Config File for doot (http://github.com/jgrey4296/doot)
+
+[startup]
+doot_version         = "1.1"
+loaders              = { commands="default", task="default", parser="default" }
+sources              = { tasks=[".tasks"], code=[] }
+empty_cmd            = ["run", "example::basic"]
+implicit_task_cmd    = ["run"]
+
+
+[logging]
+file = false
+extra.jgdv = false
+
+[logging.stream]
+disabled  = false
+level     = "WARNING"
+filter    = []
+target    = ["stdout"]
+format    = "{levelname:<8} : {message}"
+
+[logging.printer]
+disabled      = false
+level         = "WARNING"
+colour        = true
+target        = ["stdout"]
+format        = "{message}"
+filename_fmt  = "doot_printed.log"
+
+
+[[locations]]
+
+[[tasks.example]]
+name     = "basic"
+actions  = [{do="log", msg="Basic Task"}]
+cleanup  = [{do="log", msg="Basic Task Cleanup"}]
+
+[[tasks.example]]
+name          = "dep"
+required_for  = ["example::basic"]
+actions       = [{do="log", msg="This runs, despite not being part of example::basic's explicit dependencies"}]
+
+[[tasks.example]]
+name          = "alt.dep"
+required_for  = ["example::basic..$cleanup$"]
+actions       = [{do="log", msg="Indirect Dependency of a generated $cleanup$ task"}]

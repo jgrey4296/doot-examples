@@ -16,6 +16,6 @@ hide    = []
 aliases = { simplealias=["--help"] }
 
 [logging]
-stream  = { level="user",   filter=[],   target="stdout", format="{levelname:<8} : {message}"  }
+stream  = { level="WARNING",   filter=[],   target="stdout", format="{levelname:<8} : {message}"  }
 file    = false
 printer = { level="NOTSET", colour=true, target=["stdout"], format="{message}", filename_fmt="doot_printed.log" }

@@ -6,8 +6,14 @@ loaders               = { commands="default", task="default", parser="default" }
 sources               = { tasks=[".tasks"], code=[] }
 empty_cmd             = ["run", "example::+.expansion"]
 
+[settings.commands.run]
+show = false
+
 [logging]
-file = false
+file              = false
+extra.jgdv        = false
+extra.matplotlib  = false
+extra.PIL         = false
 
 [logging.stream]
 level   = "WARNING"
@@ -22,8 +28,6 @@ target       = ["stdout"]
 format       = "{message}"
 filename_fmt = "doot_printed.log"
 
-[logging.extra]
-jgdv = false
 
 [[locations]]
 
@@ -44,14 +48,29 @@ actions      = [
     {do="log", msg="Subtasks Queued"},
     {do="log", msg="--------------------------"},
 ]
-head-actions  = [{do="log", msg="Job Head"},]
-cleanup       = [{do="log", msg="Job Cleanup"},]
+head-actions  = [{do="log", msg="Job Head"}]
+cleanup       = [{do="log", msg="Job Cleanup"}]
 
 [[tasks.example]]
 name     = "_.simple"
 blah     = "hello"
+depends_on = ["example::_.simple.dep"]
 actions  = [
     {do="log", msg="SubTask. {_task_name}"},
     {do="log", msg="Expansion value: blah = {blah}"},
     {do="log", msg="--------------------------"},
 ]
+head-actions = [{do="log", msg="Subtask Head: {blah}"}]
+cleanup = [{do="log", msg="Subtask Cleanup: {blah}"}]
+
+[[tasks.example]]
+name     = "_.simple.dep"
+actions  = [
+    {do="log", msg="Subtask Dependency"},
+    {do="log", msg="--------------------------"},
+]
+
+[[tasks.example]]
+name          = "_.head.response"
+required_for  = ["example::+.expansion..$head$..$cleanup$"]
+actions       = [{do="log", msg="Head Cleanup Dependency"}]

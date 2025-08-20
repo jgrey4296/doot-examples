@@ -1,17 +1,28 @@
 :   |   ::  []      : Entering Job
 :   |   ::  []      : Subtasks Queued
 :   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..4[<uuid>]
+:   |   ::  []      : Subtask Dependency
+:   |   ::  []      : --------------------------
+:   |   ::  []      : SubTask. example::+.expansion..subtasks..4[<uuid:82a15b1a-7d5f-11f0-a131-1c834133728f>]
 :   |   ::  []      : Expansion value: blah = d
 :   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..3[<uuid>]
+:   |   ::  []      : SubTask. example::+.expansion..subtasks..3[<uuid:829e5e56-7d5f-11f0-b6ae-1c834133728f>]
 :   |   ::  []      : Expansion value: blah = c
 :   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..2[<uuid>]
+:   |   ::  []      : SubTask. example::+.expansion..subtasks..2[<uuid:829aafc4-7d5f-11f0-b6dd-1c834133728f>]
 :   |   ::  []      : Expansion value: blah = b
 :   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..1[<uuid>]
+:   |   ::  []      : SubTask. example::+.expansion..subtasks..1[<uuid:8297959f-7d5f-11f0-b054-1c834133728f>]
 :   |   ::  []      : Expansion value: blah = a
 :   |   ::  []      : --------------------------
+:   |   ::  []      : Subtask Head: d
+:   |   ::  []      : Subtask Head: c
+:   |   ::  []      : Subtask Head: b
+:   |   ::  []      : Subtask Head: a
 :   |   ::  []      : Job Head
+:   |   ::  []      : Subtask Cleanup: d
+:   |   ::  []      : Subtask Cleanup: c
+:   |   ::  []      : Subtask Cleanup: b
+:   |   ::  []      : Subtask Cleanup: a
+:   |   ::  []      : Head Cleanup Dependency
 :   |   ::  []      : Job Cleanup
