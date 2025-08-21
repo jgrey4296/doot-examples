@@ -1,0 +1,87 @@
+# -*- mode:toml; -*-
+# Config File for doot (http://github.com/jgrey4296/doot)
+#
+
+[startup]
+# The version this config file works with:
+doot_version         = "1.1"
+loaders              = { commands="default", task="default", parser="default" }
+sources              = { tasks=[".tasks"], code=[] }
+skip_default_plugins = false
+skip_plugin_search   = false
+empty_cmd            = ["run", "example::random.seed"]
+implicit_task_cmd    = ["run"]
+
+[shutdown]
+notify           = { exit="Dooted" } # success_msg="", fail_msg=""
+defaulted_values = { write=false, path=".defaulted_values.toml" }
+
+[settings.commands]
+[settings.commands.run]
+tracker         = "default"
+runner          = "default"
+reporter        = "default"
+location_check  = { active=true, make_missing=false, strict=true }
+sleep           = { task=0.2, subtask=1, batch=1 }
+max_steps       = 100_000
+# stepper         = { break_on="job" }
+
+[logging]
+file = false
+
+[logging.stream]
+level     = "WARNING"
+target    = ["stdout"]
+format    = "{levelname:<8} : {message}"
+
+[logging.printer]
+level         = "WARNING"
+colour        = true
+target        = ["stdout"]
+format        = "{message}"
+filename_fmt  = "doot_printed.log"
+
+
+[[locations]]
+
+[[global]]
+rng_seed = 1285197523
+# Turn the seed off with rng_seed = -1
+
+[[tasks.example]]
+name     = "random.seed"
+prefix   = ""
+actions  = [
+    {do="log", msg="Random Numbers with a controllable seed: {rng_seed}"},
+    {do="log", msg="---------------------------------------------------"},
+    {do="state.add", prefix="Init"},
+    {do="dootle.actions.random:rng_fresh", seed_="rng_seed"},
+    {do="log", msg="The RNG is: {__rng}"},
+    {do="log", msg="----"},
+    {do="state.add", prefix="Generate"},
+    {do="dootle.actions.random:rng_ints", count=5, update_="ints"},
+    {do="log", msg="Generating some Ints: {ints}"},
+    {do="dootle.actions.random:rng_ints", count=5, update_="ints"},
+    {do="log", msg="Generating some more Ints: {ints}"},
+    #
+    {do="state.add", prefix="Reset"},
+    {do="log", msg="---- Resetting the RNG ----"},
+    {do="dootle.actions.random:rng_fresh", seed_="rng_seed"},
+    {do="dootle.actions.random:rng_ints", count=5, update_="ints"},
+    {do="log", msg="The first 5 Ints Again: {ints}"},
+    #
+    {do="state.add", prefix="Range"},
+    {do="log", msg="---- RNG within a range ----"},
+    {do="dootle.actions.random:rng_ints", count=5, min=10, max=100, update_="ints"},
+    {do="log", msg="10 <= ({ints}) < 100"},
+    {do="log", msg="---- A Single Random Number ----"},
+    {do="dootle.actions.random:rng_ints", count=1, min=10, max=100, update_="ints"},
+    {do="log", msg="10 <= ({ints}) < 100"},
+    {do="state.add", prefix="Distributions"},
+    {do="log", msg="---- Drawing From Distributions ----"},
+    {do="dootle.actions.random:rng_draw", args=[1.2, 10], shape=[1], dist="beta", update_="vals"},
+    {do="log", msg="beta(1.2, 10): {vals}"},
+    {do="dootle.actions.random:rng_draw", args=[0.4, 2], shape=[1, 4], dist="normal", update_="vals"},
+    {do="log", msg="normal(0.4, 2): {vals}"},
+    #
+]

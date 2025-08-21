@@ -1,0 +1,17 @@
+:   |   ::  [Spawn] : ---- RNG can spawn Subgenerators ----
+:   |   ::  [Spawn] : Spawned: [Generator(PCG64) at 0x7750F952D700, Generator(PCG64) at 0x7750F952D7E0, Generator(PCG64) at 0x7750F952D8C0]
+:   |   ::  [Spawn] : Individual Spawned: Generator(PCG64), Generator(PCG64), Generator(PCG64)
+:   |   ::  [Spawn] : Using Spawned_0: 77
+:   |   ::  [Spawn] : Using Spawned_1: 81
+:   |   ::  [Spawn] : Using Spawned_2: 16
+:   |   ::  [Job]   : ---- Job -> Subtask Spawned RNG passing ----
+:   |   ::  [Job]   : RNG id=131189664045696
+:   |   ::  [Subtask::a] : rng val: [2 4 1 2 5]
+:   |   ::  [Subtask::a] : RNG id=131189664045920
+:   |   ::  [Subtask::a] : ----
+:   |   ::  [Subtask::b] : rng val: [9 6 4 7 0]
+:   |   ::  [Subtask::b] : RNG id=131189664046592
+:   |   ::  [Subtask::b] : ----
+:   |   ::  [Subtask::c] : rng val: [4 3 3 5 7]
+:   |   ::  [Subtask::c] : RNG id=131189664046816
+:   |   ::  [Subtask::c] : ----

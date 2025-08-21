@@ -1,0 +1,15 @@
+:   |   ::  []      : Random Numbers with a controllable seed: 1285197523
+:   |   ::  []      : ---------------------------------------------------
+:   |   ::  [Init]  : The RNG is: Generator(PCG64)
+:   |   ::  [Init]  : ----
+:   |   ::  [Generate] : Generating some Ints: [7 7 0 8 1]
+:   |   ::  [Generate] : Generating some more Ints: [0 6 3 2 6]
+:   |   ::  [Reset] : ---- Resetting the RNG ----
+:   |   ::  [Reset] : The first 5 Ints Again: [7 7 0 8 1]
+:   |   ::  [Range] : ---- RNG within a range ----
+:   |   ::  [Range] : 10 <= ([16 66 45 32 71]) < 100
+:   |   ::  [Range] : ---- A Single Random Number ----
+:   |   ::  [Range] : 10 <= (17) < 100
+:   |   ::  [Distributions] : ---- Drawing From Distributions ----
+:   |   ::  [Distributions] : beta(1.2, 10): 0.3514075257805724
+:   |   ::  [Distributions] : normal(0.4, 2): [[-1.32322325 -2.87526472 -3.58512622  0.17361297]]

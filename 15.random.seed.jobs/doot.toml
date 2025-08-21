@@ -1,0 +1,91 @@
+# -*- mode:toml; -*-
+# Config File for doot (http://github.com/jgrey4296/doot)
+#
+
+[startup]
+# The version this config file works with:
+doot_version         = "1.1"
+loaders              = { commands="default", task="default", parser="default" }
+sources              = { tasks=["."], code=["."] }
+skip_default_plugins = false
+skip_plugin_search   = false
+empty_cmd            = ["run", "example::+.job.rngs"]
+implicit_task_cmd    = ["run"]
+
+[shutdown]
+notify           = { exit="Dooted" } # success_msg="", fail_msg=""
+defaulted_values = { write=false, path=".defaulted_values.toml" }
+
+[settings.commands]
+
+[settings.commands.run]
+tracker         = "default"
+runner          = "default"
+reporter        = "default"
+location_check  = { active=true, make_missing=false, strict=true }
+sleep           = { task=0.2, subtask=1, batch=1 }
+max_steps       = 100_000
+
+[logging]
+file = false
+
+[logging.stream]
+level     = "WARNING"
+target    = ["stdout"]
+format    = "{levelname:<8} : {message}"
+
+[logging.printer]
+level         = "WARNING"
+colour        = true
+target        = ["stdout"]
+format        = "{message}"
+filename_fmt  = "doot_printed.log"
+
+[[locations]]
+
+[[global]]
+rng_seed = 1285197523
+
+[[tasks.example]]
+name         = "+.job.rngs"
+prefix       = "Job"
+data         = ["a", "b", "c"]
+inject_vals  = {from_state=["__rng"], literal=["data"]}
+template     = "example::_.injected.rng"
+depends_on   = ["example::_.rng.spawning"]
+actions      = [
+    {do="log", msg="---- Job -> Subtask Spawned RNG passing ----"},
+    {do="dootle.actions.random:rng_fresh", seed_="rng_seed"},
+    {do="local:report_rng"},
+    {do="dootle.jobs.expand:JobExpandAction", from_="data", update_="subtasks", inject_="inject_vals", template_="template"},
+    {do="dootle.actions.random:rng_job_spawn", onto_="subtasks"},
+    {do="dootle.jobs.expand:JobQueueAction",  from_="subtasks"},
+]
+
+[[tasks.example]]
+name         = "_.injected.rng"
+prefix       = "Subtask::{data}"
+must_inject  = ["data", "__rng"]
+actions      = [
+    {do="dootle.actions.random:rng_ints", count=5, update_="ints"},
+    {do="log", msg="rng val: {ints}"},
+    {do="local:report_rng"},
+    {do="log", msg="----"},
+]
+
+[[tasks.example]]
+name = "_.rng.spawning"
+prefix = "Spawn"
+actions = [
+    {do="log", msg="---- RNG can spawn Subgenerators ----"},
+    {do="dootle.actions.random:rng_fresh", seed_="rng_seed"},
+    {do="dootle.actions.random:rng_spawn", num=3, update_="spawned"},
+    {do="log", msg="Spawned: {spawned}"},
+    {do="log", msg="Individual Spawned: {spawned_0}, {spawned_1}, {spawned_2}"},
+    {do="dootle.actions.random:rng_ints", __rng_="spawned_0", count=1, min=10, max=100, update_="ints"},
+    {do="log", msg="Using Spawned_0: {ints}"},
+    {do="dootle.actions.random:rng_ints", __rng_="spawned_1", count=1, min=10, max=100, update_="ints"},
+    {do="log", msg="Using Spawned_1: {ints}"},
+    {do="dootle.actions.random:rng_ints", __rng_="spawned_2", count=1, min=10, max=100, update_="ints"},
+    {do="log", msg="Using Spawned_2: {ints}"},
+]
