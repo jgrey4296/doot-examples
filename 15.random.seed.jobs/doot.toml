@@ -50,7 +50,7 @@ rng_seed = 1285197523
 name         = "+.job.rngs"
 prefix       = "Job"
 data         = ["a", "b", "c"]
-inject_vals  = {from_state=["__rng"], literal=["data"]}
+inject_vals  = {literal=["data"]}
 template     = "example::_.injected.rng"
 depends_on   = ["example::_.rng.spawning"]
 actions      = [
