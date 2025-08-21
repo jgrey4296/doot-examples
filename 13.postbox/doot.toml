@@ -1,23 +1,20 @@
 # -*- mode:toml; -*-
 
-
 [startup]
 doot_version         = "1.1"
 loaders              = { commands="default", task="default", parser="default" }
 sources              = { tasks=[".tasks"], code=[] }
-empty_cmd = ["run"]
+empty_cmd = ["run", "example::postbox"]
 
 [logging]
-file = false
-extra.jgdv = false
+file        = false
+extra.jgdv  = false
 
 [logging.stream]
-disabled  = false 
 level     = "user"
 filter    = []
 target    = ["stdout"]
 format    = "{levelname:<8} : {message}"
-
 
 [logging.printer]
 disabled      = false
@@ -30,9 +27,67 @@ filename_fmt  = "doot_printed.log"
 [[locations]]
 
 [[tasks.example]]
-name     = "postbox"
-actions  = [
-# Put stuff in the postbox
-# Get it out
-# print it
+name             = "_.add.data"
+data_args        = ["args data example"]
+data_key1        = ["blah", "bloo", "blee"]
+data_key2        = ["aweg", "qqqq"]
+data_general     = ["general data example"]
+data_uuid        = ["uuid data example"]
+actions          = [
+    {do="log", msg="---- Setting up Postbox ----"},
+    {do="log", msg="args example: {data_args}"},
+    {do="log", msg="(Data is added in the *current* task, indexed by its *uuid*)"},
+    {do="dootle.actions.postbox:PutPostAction", args=["data_args"]},
+    {do="log", msg="--------"},
+    {do="log", msg="UUID example: example::postbox[<uuid>] <- {data_uuid}"},
+    {do="log", msg="(Data is added in the *target* task, indexed by *current* *uuid*)"},
+    {do="dootle.actions.postbox:PutPostAction", "example::postbox[<uuid>]"="{data_uuid}"},    
+    {do="log", msg="--------"},
+    {do="log", msg="General Example 1: example::postbox    <- {data_general}"},
+    {do="log", msg="General Example 2: example::postbox[-] <- {data_general}"},
+    {do="log", msg="(Data is added to an implicit sub-box '-')"},
+    {do="dootle.actions.postbox:PutPostAction", "example::postbox"="{data_general}"},    
+    {do="dootle.actions.postbox:PutPostAction", "example::postbox[-]"="{data_general}"},    
+    {do="log", msg="--------"},
+    {do="log", msg="Key Example 1: example::postbox[first]  <- {data_key1}"},
+    {do="log", msg="Key Example 2: example::postbox[second] <- {data_key2}"},
+    {do="log", msg="(These target the same box, different index sub-box)"},
+    {do="dootle.actions.postbox:PutPostAction", "example::postbox[first]"="{data_key1}"},    
+    {do="dootle.actions.postbox:PutPostAction", "example::postbox[second]"="{data_key2}"},    
+    {do="log", msg="----------------"},
 ]
+
+[[tasks.example]]
+name        = "postbox"
+data        = ["Original Data"]
+depends_on  = ["example::_.add.data"]
+setup       = [
+    {do="log", msg="---- Crossing task boundaries ----"},
+]
+actions = [
+    {do="log", msg="----------------"},
+    {do="dootle.actions.postbox:GetPostAction", data="example::_.add.data[*]"},
+    {do="log", msg="Whole Previous Task Box Get example: example::_.add.data[*]"},
+    {do="log", msg="{data}"},
+    {do="log", msg="--------"},
+    {do="dootle.actions.postbox:GetPostAction", data="example::postbox[*]"},
+    {do="log", msg="Whole Current Task Box Get example: example::postbox[*]"},
+    {do="log", msg="{data}"},
+    {do="log", msg="(The uuid mentioned here should be the same as in the previous task whole box example)"},
+    {do="log", msg="--------"},
+    {do="dootle.actions.postbox:GetPostAction", data="example::postbox[first]"},    
+    {do="log", msg="Key Example 1: example::postbox[first]"},
+    {do="log", msg="{data}"},
+    {do="dootle.actions.postbox:GetPostAction", data="example::postbox[second]"},    
+    {do="log", msg="Key Example 2: example::postbox[second]"},
+    {do="log", msg="{data}"},
+    {do="log", msg="--------"},
+    {do="dootle.actions.postbox:GetPostAction", data="example::postbox"},
+    {do="log", msg="No Key Example: example::postbox"},
+    {do="log", msg="{data}"},
+    {do="dootle.actions.postbox:GetPostAction", data="example::postbox[-]"},
+    {do="log", msg="General Example: example::postbox[-]"},
+    {do="log", msg="{data}"},
+    {do="log", msg="--------"},
+]
+
