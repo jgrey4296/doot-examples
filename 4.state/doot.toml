@@ -24,6 +24,7 @@ depends_on  = ["state::_.local", "state::_.global" ]
 
 [[tasks.state]]
 name     = "_.local"
+prefix   = "local"
 a_value  = "blah"
 actions  = [
     {do="log", msg="Getting the value from local state: {a_value}."},
@@ -33,6 +34,7 @@ actions  = [
 
 [[tasks.state]]
 name     = "_.global"
+prefix   = "global"
 actions  = [
     {do="log", msg="Getting the value from local state: {global_value}."},
     {do="log", msg="(It Should be 'bloo'.)"},

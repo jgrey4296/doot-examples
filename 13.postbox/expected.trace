@@ -1,34 +1,34 @@
-:   |   ::  []      : ---- Setting up Postbox ----
-:   |   ::  []      : args example: ['args data example']
-:   |   ::  []      : (Data is added in the *current* task, indexed by its *uuid*)
-:   |   ::  []      : --------
-:   |   ::  []      : UUID example: example::postbox[<uuid>] <- ['uuid data example']
-:   |   ::  []      : (Data is added in the *target* task, indexed by *current* *uuid*)
-:   |   ::  []      : --------
-:   |   ::  []      : General Example 1: example::postbox    <- ['general data example']
-:   |   ::  []      : General Example 2: example::postbox[-] <- ['general data example']
-:   |   ::  []      : (Data is added to an implicit sub-box '-')
-:   |   ::  []      : --------
-:   |   ::  []      : Key Example 1: example::postbox[first]  <- ['blah', 'bloo', 'blee']
-:   |   ::  []      : Key Example 2: example::postbox[second] <- ['aweg', 'qqqq']
-:   |   ::  []      : (These target the same box, different index sub-box)
-:   |   ::  []      : ----------------
-:   |   ::  []      : ---- Crossing task boundaries ----
-:   |   ::  []      : ----------------
-:   |   ::  []      : Whole Previous Task Box Get example: example::_.add.data[*]
-:   |   ::  []      : defaultdict(<class 'list'>, {UUID('f03ed2b5-7ec4-11f0-9bb5-1c834133728f'): ['args data example']})
-:   |   ::  []      : --------
-:   |   ::  []      : Whole Current Task Box Get example: example::postbox[*]
-:   |   ::  []      : defaultdict(<class 'list'>, {UUID('f03ed2b5-7ec4-11f0-9bb5-1c834133728f'): ['uuid data example'], '-': ['general data example', 'general data example'], 'first': ['blah', 'bloo', 'blee'], 'second': ['aweg', 'qqqq']})
-:   |   ::  []      : (The uuid mentioned here should be the same as in the previous task whole box example)
-:   |   ::  []      : --------
-:   |   ::  []      : Key Example 1: example::postbox[first]
-:   |   ::  []      : ['blah', 'bloo', 'blee']
-:   |   ::  []      : Key Example 2: example::postbox[second]
-:   |   ::  []      : ['aweg', 'qqqq']
-:   |   ::  []      : --------
-:   |   ::  []      : No Key Example: example::postbox
-:   |   ::  []      : ['general data example', 'general data example']
-:   |   ::  []      : General Example: example::postbox[-]
-:   |   ::  []      : ['general data example', 'general data example']
-:   |   ::  []      : --------
+:   |   ::  [Adding] : ---- Setting up Postbox ----
+:   |   ::  [Adding] : args example: ['args data example']
+:   |   ::  [Adding] : (Data is added in the *current* task, indexed by its *uuid*)
+:   |   ::  [Adding] : --------
+:   |   ::  [Adding] : UUID example: example::postbox[<uuid>] <- ['uuid data example']
+:   |   ::  [Adding] : (Data is added in the *target* task, indexed by *current* *uuid*)
+:   |   ::  [Adding] : --------
+:   |   ::  [Adding] : General Example 1: example::postbox    <- ['general data example']
+:   |   ::  [Adding] : General Example 2: example::postbox[-] <- ['general data example']
+:   |   ::  [Adding] : (Data is added to an implicit sub-box '-')
+:   |   ::  [Adding] : --------
+:   |   ::  [Adding] : Key Example 1: example::postbox[first]  <- ['blah', 'bloo', 'blee']
+:   |   ::  [Adding] : Key Example 2: example::postbox[second] <- ['aweg', 'qqqq']
+:   |   ::  [Adding] : (These target the same box, different index sub-box)
+:   |   ::  [Adding] : ----------------
+:   |   ::  [Getting] : ---- Crossing task boundaries ----
+:   |   ::  [Getting] : ----------------
+:   |   ::  [Getting] : Whole Previous Task Box Get example: example::_.add.data[*]
+:   |   ::  [Getting] : defaultdict(<class 'list'>, {UUID('fae5080f-7ed7-11f0-a536-1c834133728f'): ['args data example']})
+:   |   ::  [Getting] : --------
+:   |   ::  [Getting] : Whole Current Task Box Get example: example::postbox[*]
+:   |   ::  [Getting] : defaultdict(<class 'list'>, {UUID('fae5080f-7ed7-11f0-a536-1c834133728f'): ['uuid data example'], '-': ['general data example', 'general data example'], 'first': ['blah', 'bloo', 'blee'], 'second': ['aweg', 'qqqq']})
+:   |   ::  [Getting] : (The uuid mentioned here should be the same as in the previous task whole box example)
+:   |   ::  [Getting] : --------
+:   |   ::  [Getting] : Key Example 1: example::postbox[first]
+:   |   ::  [Getting] : ['blah', 'bloo', 'blee']
+:   |   ::  [Getting] : Key Example 2: example::postbox[second]
+:   |   ::  [Getting] : ['aweg', 'qqqq']
+:   |   ::  [Getting] : --------
+:   |   ::  [Getting] : No Key Example: example::postbox
+:   |   ::  [Getting] : ['general data example', 'general data example']
+:   |   ::  [Getting] : General Example: example::postbox[-]
+:   |   ::  [Getting] : ['general data example', 'general data example']
+:   |   ::  [Getting] : --------

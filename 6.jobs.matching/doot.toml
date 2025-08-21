@@ -24,11 +24,12 @@ filename_fmt  = "doot_printed.log"
 
 
 [[tasks.example]]
-name        = "+.matcher"
-doc         = ["uses the match action to assign data to different subtasks"]
-data        = ["a.bib", "b.txt", "c.bib", "d.py", "blah.bloo"]
-inject_vals = {literal=["fpath"]}
-actions     = [
+name         = "+.matcher"
+doc          = ["uses the match action to assign data to different subtasks"]
+data         = ["a.bib", "b.txt", "c.bib", "d.py", "blah.bloo"]
+prefix       = "JOB"
+inject_vals  = {literal=["fpath"]}
+actions      = [
     {do="log", msg="Generating Matched Subtasks"},
     {do="dootle.jobs.expand:MatchExpansionAction", mapping_="matrix", update_="subtasks", from_="data", inject_="inject_vals"},
     {do="dootle.jobs.expand:JobQueueAction",  from_="subtasks"},
@@ -43,24 +44,27 @@ head-actions = [{do="log", msg="Job Head"}]
 "_"     = "mapped::_.fallback.task"
 
 [[tasks.mapped]]
-name = "_.bib.task"
-actions = [
+name     = "_.bib.task"
+prefix   = "BIB"
+actions  = [
     {do="log", msg="A subtask: {_task_name}"},
     {do="log", msg="A .bib task for: {fpath}"},
     {do="log", msg="--------------------------"},
 ]
 
 [[tasks.mapped]]
-name = "_.txt.task"
-actions = [
+name     = "_.txt.task"
+prefix   = "TXT"
+actions  = [
     {do="log", msg="A subtask: {_task_name}"},
     {do="log", msg="A .txt task for : {fpath}"},
     {do="log", msg="--------------------------"},
 ]
 
 [[tasks.mapped]]
-name = "_.fallback.task"
-actions = [
+name     = "_.fallback.task"
+prefix   = "FALLBACK"
+actions  = [
     {do="log", msg="A subtask: {_task_name}"},
     {do="log", msg="A misc task for: {fpath}"},
     {do="log", msg="--------------------------"},

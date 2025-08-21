@@ -1,6 +1,6 @@
-:   |   ::  []      : Getting the value from local state: blah.
-:   |   ::  []      : (It Should be 'blah'.)
-:   |   ::  []      : ----------------
-:   |   ::  []      : Getting the value from local state: bloo.
-:   |   ::  []      : (It Should be 'bloo'.)
-:   |   ::  []      : ----------------
+:   |   ::  [local] : Getting the value from local state: blah.
+:   |   ::  [local] : (It Should be 'blah'.)
+:   |   ::  [local] : ----------------
+:   |   ::  [global] : Getting the value from local state: bloo.
+:   |   ::  [global] : (It Should be 'bloo'.)
+:   |   ::  [global] : ----------------

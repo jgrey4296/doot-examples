@@ -34,9 +34,10 @@ target = "file::>./is-there.txt"
 
 [[tasks."file.dep"]]
 name        = "top"
+prefix      = "top"
 doc         = ["An example of file dependencies"]
 depends-on  = ["file.dep::_.yes"]
-actions = [
+actions     = [
     {do="log", msg="--------------------------"},
     {do="log", msg="Task: {_task_name}"},
 ]
@@ -48,31 +49,34 @@ cleanup = [
 ]
 
 [[tasks."file.dep"]]
-disabled             = false
-name                 = "_.no"
-doc                  = ["This shouldn't run, because the file doesn't exist"]
-depends-on           = ["file::>./not-there.txt"]
-actions = [
+disabled    = false
+name        = "_.no"
+prefix      = "BAD"
+doc         = ["This shouldn't run, because the file doesn't exist"]
+depends-on  = ["file::>./not-there.txt"]
+actions     = [
     {do="log", msg="--------------------------"},
     {do="log", msg="Task: {_task_name}"},
     {do="log", msg="This should not be printed, because ./not-there.txt should not exist"},
 ]
 
 [[tasks."file.dep"]]
-name                 = "_.yes"
-doc                  = ["this should run"]
-depends-on           = ["file::>./is-there.txt"]
-actions              = [
+name        = "_.yes"
+prefix      = "GOOD"
+doc         = ["this should run"]
+depends-on  = ["file::>./is-there.txt"]
+actions     = [
     {do="log", msg="--------------------------"},
     {do="log", msg="Task: {_task_name}"},
     {do="log", msg="File Exists"}
 ]
 
 [[tasks."file.dep"]]
-name                  = "_.make.file"
-doc                   = ["this will create file.deps.op's file dependency"]
-val                   = "some simple data"
-actions               = [
+name     = "_.make.file"
+prefix   = "make"
+doc      = ["this will create file.deps.op's file dependency"]
+val      = "some simple data"
+actions  = [
     {do="log", msg="--------------------------"},
     {do="log", msg="Task: {_task_name}"},
     {do="log", msg="Making File"},

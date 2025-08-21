@@ -1,18 +1,18 @@
-:   |   ::  []      : Generating Matched Subtasks
-:   |   ::  []      : --------------------------
-:   |   ::  []      : A subtask: mapped::_.fallback.task..matched.5..<+>[<uuid>]
-:   |   ::  []      : A misc task for: blah.bloo
-:   |   ::  []      : --------------------------
-:   |   ::  []      : A subtask: mapped::_.fallback.task..matched.4..<+>[<uuid>]
-:   |   ::  []      : A misc task for: d.py
-:   |   ::  []      : --------------------------
-:   |   ::  []      : A subtask: mapped::_.bib.task..matched.3..<+>[<uuid>]
-:   |   ::  []      : A .bib task for: c.bib
-:   |   ::  []      : --------------------------
-:   |   ::  []      : A subtask: mapped::_.txt.task..matched.2..<+>[<uuid>]
-:   |   ::  []      : A .txt task for: b.txt
-:   |   ::  []      : --------------------------
-:   |   ::  []      : A subtask: mapped::_.bib.task..matched.1..<+>[<uuid>]
-:   |   ::  []      : A .bib task for: a.bib
-:   |   ::  []      : --------------------------
-:   |   ::  []      : Job Head
+:   |   ::  [JOB]   : Generating Matched Subtasks
+:   |   ::  [JOB]   : --------------------------
+:   |   ::  [BIB]   : A subtask: mapped::_.bib.task..matched.1[<uuid:49013920-7ed9-11f0-b2e4-1c834133728f>]
+:   |   ::  [BIB]   : A .bib task for: a.bib
+:   |   ::  [BIB]   : --------------------------
+:   |   ::  [TXT]   : A subtask: mapped::_.txt.task..matched.2[<uuid:49030239-7ed9-11f0-8c0e-1c834133728f>]
+:   |   ::  [TXT]   : A .txt task for : b.txt
+:   |   ::  [TXT]   : --------------------------
+:   |   ::  [BIB]   : A subtask: mapped::_.bib.task..matched.3[<uuid:4904bf03-7ed9-11f0-98f7-1c834133728f>]
+:   |   ::  [BIB]   : A .bib task for: c.bib
+:   |   ::  [BIB]   : --------------------------
+:   |   ::  [FALLBACK] : A subtask: mapped::_.fallback.task..matched.4[<uuid:490679b0-7ed9-11f0-a1b3-1c834133728f>]
+:   |   ::  [FALLBACK] : A misc task for: d.py
+:   |   ::  [FALLBACK] : --------------------------
+:   |   ::  [FALLBACK] : A subtask: mapped::_.fallback.task..matched.5[<uuid:490855b4-7ed9-11f0-9837-1c834133728f>]
+:   |   ::  [FALLBACK] : A misc task for: blah.bloo
+:   |   ::  [FALLBACK] : --------------------------
+:   |   ::  [JOB]   : Job Head

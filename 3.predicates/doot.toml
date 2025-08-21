@@ -19,6 +19,7 @@ depends-on  = ["predicates::_.yes", "predicates::_.no"]
 
 [[tasks.predicates]]
 name        = "_.yes"
+prefix      = "should.succeed"
 f_target    = "doot.toml"
 depends-on  = [
     {do="log", msg="----------------"},
@@ -31,6 +32,7 @@ actions    = [ {do="log", msg="Predicate success" } ]
 
 [[tasks.predicates]]
 name        = "_.no"
+prefix      = "should.fail"
 f_target    = "not.toml"
 depends-on  = [
     {do="log", msg="----------------"},

@@ -1,8 +1,8 @@
-:   |   ::  []      : ----------------
-:   |   ::  []      : Success Example:
-:   |   ::  []      : Task will run because doot.toml exists. 'predicate success' should be logged:
-:   |   ::  []      : Predicate success
-:   |   ::  []      : ----------------
-:   |   ::  []      : Failure Example:
-:   |   ::  []      : Will Skip because not.toml does not exist. 'predicate failure' should *not* be logged:
-:   |   ::  []      : ----------------
+:   |   ::  [should.succeed] : ----------------
+:   |   ::  [should.succeed] : Success Example:
+:   |   ::  [should.succeed] : Task will run because doot.toml exists. 'predicate success' should be logged:
+:   |   ::  [should.succeed] : Predicate success
+:   |   ::  [should.fail] : ----------------
+:   |   ::  [should.fail] : Failure Example:
+:   |   ::  [should.fail] : Will Skip because not.toml does not exist. 'predicate failure' should *not* be logged:
+:   |   ::  [should.fail] : ----------------

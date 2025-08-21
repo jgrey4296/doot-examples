@@ -1,10 +1,10 @@
-:   |   ::  []      : Entering Job. There are 4 data values, but only 2 subtasks will be generated.
-:   |   ::  []      : Subtasks Queued
-:   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..1..<+>[<uuid>]
-:   |   ::  []      : Expansion value: blah = a
-:   |   ::  []      : --------------------------
-:   |   ::  []      : SubTask. example::+.expansion..subtasks..4..<+>[<uuid>]
-:   |   ::  []      : Expansion value: blah = d
-:   |   ::  []      : --------------------------
-:   |   ::  []      : Job Head
+:   |   ::  [JOB]   : Entering Job. There are 4 data values, but only 2 subtasks will be generated.
+:   |   ::  [JOB]   : Subtasks Queued
+:   |   ::  [JOB]   : --------------------------
+:   |   ::  [SUB]   : SubTask. example::+.expansion..subtasks..JOB.4[<uuid:3e0ed0a8-7ed9-11f0-b637-1c834133728f>]
+:   |   ::  [SUB]   : Expansion value: blah = d
+:   |   ::  [SUB]   : --------------------------
+:   |   ::  [SUB]   : SubTask. example::+.expansion..subtasks..JOB.1[<uuid:3e120385-7ed9-11f0-bb4c-1c834133728f>]
+:   |   ::  [SUB]   : Expansion value: blah = a
+:   |   ::  [SUB]   : --------------------------
+:   |   ::  [JOB]   : Job Head

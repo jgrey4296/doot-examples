@@ -29,12 +29,13 @@ format       = "{message}"
 filename_fmt = "doot_printed.log"
 
 [[tasks.inject]]
-name         = "top"
-blah         = "inject::top spec's direct value"
-bloo         = "{aweg}"
-aweg         = "{blee}"
-blee         = "Immediate Expansion in inject::top"
-depends_on   = [
+name        = "top"
+prefix      = "top"
+blah        = "inject::top spec's direct value"
+bloo        = "{aweg}"
+aweg        = "{blee}"
+blee        = "Immediate Expansion in inject::top"
+depends_on  = [
     {task="inject::_.target"},
     # # Source expansion:  blah -> expanded(blah)
     {task="inject::_.target", inject={from_spec=["blah"]}},
@@ -54,6 +55,7 @@ doc         = [
     "When run on its own, will message 'default blah'.",
     "When run from inject::top, will message values based on the injection.",
 ]
+prefix   = "sub"
 blah     = "inject::_.target's default value"
 aweg     = "inject::_target's Late Expansion"
 other    = "other"

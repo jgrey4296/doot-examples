@@ -33,15 +33,18 @@ filename_fmt  = "doot_printed.log"
 
 [[tasks.example]]
 name     = "basic"
+prefix   = "basic"
 actions  = [{do="log", msg="Basic Task"}]
 cleanup  = [{do="log", msg="Basic Task Cleanup"}]
 
 [[tasks.example]]
 name          = "dep"
+prefix        = "dep"
 required_for  = ["example::basic"]
 actions       = [{do="log", msg="This runs, despite not being part of example::basic's explicit dependencies"}]
 
 [[tasks.example]]
 name          = "alt.dep"
+prefix        = "cleanup.dep"
 required_for  = ["example::basic..$cleanup$"]
 actions       = [{do="log", msg="Indirect Dependency of a generated $cleanup$ task"}]

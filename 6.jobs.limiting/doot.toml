@@ -31,6 +31,7 @@ name  = "+.expansion"
 doc   = ["A job with a limit action",
 "Creates only a limited number of subtasks"
 ]
+prefix       = "JOB"
 data         = ["a" ,"b", "c", "d"]
 inject_vals  = {literal=["blah"]}
 template     = "example::_.simple"
@@ -48,6 +49,7 @@ head-actions = [{do="log", msg="Job Head"}]
 
 [[tasks.example]]
 name     = "_.simple"
+prefix   = "SUB"
 blah     = "hello"
 actions  = [
     {do="log", msg="SubTask. {_task_name}"},

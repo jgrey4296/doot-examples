@@ -15,8 +15,10 @@ printer  = { level="WARNING", colour=true, target=["stdout"], format="{message}"
 
 [[locations]]
 # Note how the task group is more complex, by wrapping in quotes
+
 [[tasks."task.dep"]]
 name        = "top"
+prefix      = "top"
 doc         = ["An example of transitive task requirements"]
 depends-on  = ["task.dep::_.mid"]
 setup       = [
@@ -32,6 +34,7 @@ cleanup = [
 
 [[tasks."task.dep"]]
 name        = "_.mid"
+prefix      = "mid"
 depends-on  = ["task.dep::_.bottom"]
 actions     = [
     {do="log", msg="Task: {_task_name}"},
@@ -41,6 +44,7 @@ actions     = [
 
 [[tasks."task.dep"]]
 name          = "_.bottom"
+prefix        = "bot"
 required-for  = ["task.dep::_.mid"]
 actions       = [
     {do="log", msg="Task: {_task_name}"},

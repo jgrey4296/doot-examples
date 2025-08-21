@@ -27,13 +27,14 @@ filename_fmt  = "doot_printed.log"
 [[locations]]
 
 [[tasks.example]]
-name             = "_.add.data"
-data_args        = ["args data example"]
-data_key1        = ["blah", "bloo", "blee"]
-data_key2        = ["aweg", "qqqq"]
-data_general     = ["general data example"]
-data_uuid        = ["uuid data example"]
-actions          = [
+name          = "_.add.data"
+prefix        = "Adding"
+data_args     = ["args data example"]
+data_key1     = ["blah", "bloo", "blee"]
+data_key2     = ["aweg", "qqqq"]
+data_general  = ["general data example"]
+data_uuid     = ["uuid data example"]
+actions       = [
     {do="log", msg="---- Setting up Postbox ----"},
     {do="log", msg="args example: {data_args}"},
     {do="log", msg="(Data is added in the *current* task, indexed by its *uuid*)"},
@@ -59,12 +60,13 @@ actions          = [
 
 [[tasks.example]]
 name        = "postbox"
+prefix      = "Getting"
 data        = ["Original Data"]
 depends_on  = ["example::_.add.data"]
 setup       = [
     {do="log", msg="---- Crossing task boundaries ----"},
 ]
-actions = [
+actions     = [
     {do="log", msg="----------------"},
     {do="dootle.actions.postbox:GetPostAction", data="example::_.add.data[*]"},
     {do="log", msg="Whole Previous Task Box Get example: example::_.add.data[*]"},

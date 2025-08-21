@@ -1,4 +1,4 @@
-:   |   ::  []      : This runs, despite not being part of example::basic's explicit dependencies
-:   |   ::  []      : Basic Task
-:   |   ::  []      : Indirect Dependency of a generated $cleanup$ task
-:   |   ::  []      : Basic Task Cleanup
+:   |   ::  [dep]   : This runs, despite not being part of example::basic's explicit dependencies
+:   |   ::  [basic] : Basic Task
+:   |   ::  [cleanup.dep] : Indirect Dependency of a generated $cleanup$ task
+:   |   ::  [basic] : Basic Task Cleanup

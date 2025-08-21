@@ -1,10 +1,10 @@
-:   |   ::  []      : Task: task.dep::_.bottom[<uuid>]
-:   |   ::  []      : 1. The Bottom task, which doesn't depend on anything.
-:   |   ::  []      : --------------------------
-:   |   ::  []      : Task: task.dep::_.mid[<uuid>]
-:   |   ::  []      : 2. Middle task, which depends on the bottom.
-:   |   ::  []      : --------------------------
-:   |   ::  []      : Task: task.dep::top[<uuid>]
-:   |   ::  []      : 3.a the Top Task's setup
-:   |   ::  []      : 3.b The Top Task, which depends on the middle.
-:   |   ::  []      : 3.c The Top Task's cleanup
+:   |   ::  [bot]   : Task: task.dep::_.bottom[<uuid:941ed683-7ed8-11f0-8f71-1c834133728f>]
+:   |   ::  [bot]   : 1. The Bottom task, which doesn't depend on anything.
+:   |   ::  [bot]   : --------------------------
+:   |   ::  [mid]   : Task: task.dep::_.mid[<uuid:941d578f-7ed8-11f0-8d67-1c834133728f>]
+:   |   ::  [mid]   : 2. Middle task, which depends on the bottom.
+:   |   ::  [mid]   : --------------------------
+:   |   ::  [top]   : Task: task.dep::top[<uuid:941b4d44-7ed8-11f0-b589-1c834133728f>]
+:   |   ::  [top]   : 3.a the Top Task's setup
+:   |   ::  [top]   : 3.b The Top Task, which depends on the middle.
+:   |   ::  [top]   : 3.c The Top Task's cleanup
